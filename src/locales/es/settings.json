@@ -1,0 +1,42 @@
+{
+  "title": "Configuración",
+  "profile": {
+    "title": "Perfil",
+    "description": "Así es como otros te verán en el sitio.",
+    "form": {
+      "username": {
+        "label": "Nombre de usuario",
+        "placeholder": "shadcn"
+      },
+      "email": {
+        "label": "Correo electrónico",
+        "placeholder": "Selecciona un correo verificado para mostrar"
+      },
+      "submit": "Actualizar perfil"
+    },
+    "validation": {
+      "username_required": "Por favor, ingresa tu nombre de usuario.",
+      "username_min": "El nombre de usuario debe tener al menos 2 caracteres.",
+      "username_max": "El nombre de usuario no debe exceder los 30 caracteres.",
+      "email_required": "Por favor, ingresa tu correo electrónico.",
+      "email_invalid": "Por favor, ingresa una dirección de correo válida."
+    }
+  },
+  "appearance": {
+    "title": "Apariencia",
+    "description": "Personaliza la apariencia de la aplicación. Cambia automáticamente entre los temas de día y noche.",
+    "fields": {
+      "font": {
+        "label": "Fuente",
+        "description": "Establece la fuente que deseas utilizar en el panel de control."
+      },
+      "theme": {
+        "label": "Tema",
+        "description": "Selecciona el tema para el panel de control.",
+        "light": "Claro",
+        "dark": "Oscuro"
+      }
+    },
+    "submit": "Actualizar apariencia"
+  }
+}

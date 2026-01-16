@@ -1,0 +1,26 @@
+{
+  "general": {
+    "title": "¡Ups! Algo salió mal",
+    "description": "Pedimos disculpas por las molestias. Por favor, inténtalo de nuevo más tarde."
+  },
+  "forbidden": {
+    "title": "Acceso prohibido",
+    "description": "No tienes los permisos necesarios para ver este recurso."
+  },
+  "maintenance": {
+    "title": "¡El sitio está en mantenimiento!",
+    "description": "El sitio no está disponible en este momento. Volveremos a estar en línea pronto."
+  },
+  "not_found": {
+    "title": "¡Ups! ¡Página no encontrada!",
+    "description": "Parece que la página que buscas no existe o ha sido eliminada."
+  },
+  "unauthorized": {
+    "title": "Acceso no autorizado",
+    "description": "Por favor, inicia sesión con las credenciales adecuadas para acceder a este recurso."
+  },
+  "buttons": {
+    "go_back": "Regresar",
+    "back_to_home": "Ir al inicio"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "drawer": {
+    "trigger": "Open theme settings",
+    "title": "Theme Settings",
+    "description": "Adjust the appearance and layout to suit your preferences.",
+    "reset": "Reset",
+    "reset_aria": "Reset all settings to default values"
+  },
+  "theme": {
+    "title": "Theme",
+    "aria": "Select theme preference",
+    "desc": "Choose between system preference, light mode, or dark mode",
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "sidebar": {
+    "title": "Sidebar",
+    "aria": "Select sidebar style",
+    "desc": "Choose between inset, floating, or standard sidebar layout",
+    "inset": "Inset",
+    "floating": "Floating",
+    "sidebar": "Sidebar"
+  },
+  "layout": {
+    "title": "Layout",
+    "aria": "Select layout style",
+    "desc": "Choose between default expanded, compact icon-only, or full layout mode",
+    "default": "Default",
+    "compact": "Compact",
+    "full": "Full layout"
+  },
+  "direction": {
+    "title": "Direction",
+    "aria": "Select site direction",
+    "desc": "Choose between left-to-right or right-to-left site direction",
+    "ltr": "Left to Right",
+    "rtl": "Right to Left"
+  }
+}

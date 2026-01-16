@@ -10,6 +10,7 @@ import { UsersPrimaryButtons } from './components/users-primary-buttons'
 import { UsersProvider } from './components/users-provider'
 import { UsersTable } from './components/users-table'
 import { users } from './data/users'
+import { LanguageSwitch } from '@/components/language-switch'
 
 const route = getRouteApi('/_authenticated/users/')
 
@@ -22,6 +23,7 @@ export function Users() {
       <Header fixed>
         <Search />
         <div className='ms-auto flex items-center space-x-4'>
+          <LanguageSwitch />
           <ThemeSwitch />
           <ConfigDrawer />
           <ProfileDropdown />

@@ -1,19 +1,8 @@
 import { type LinkProps } from '@tanstack/react-router'
-
-type User = {
-  name: string
-  email: string
-  avatar: string
-}
-
-type Team = {
-  name: string
-  logo: React.ElementType
-  plan: string
-}
+import { ParseKeys } from 'i18next'
 
 type BaseNavItem = {
-  title: string
+  title: ParseKeys
   badge?: string
   icon?: React.ElementType
 }
@@ -31,13 +20,11 @@ type NavCollapsible = BaseNavItem & {
 type NavItem = NavCollapsible | NavLink
 
 type NavGroup = {
-  title: string
+  title: ParseKeys
   items: NavItem[]
 }
 
 type SidebarData = {
-  user: User
-  teams: Team[]
   navGroups: NavGroup[]
 }
 

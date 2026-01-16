@@ -1,0 +1,45 @@
+{
+  "col": {
+    "asc": "Asc",
+    "desc": "Desc",
+    "hide": "Ocultar"
+  },
+  "filter": {
+    "no_results": "No se encontraron resultados.",
+    "clear": "Limpiar filtros",
+    "selected": "seleccionado",
+    "reset": "Restablecer",
+    "placeholder": "Filtrar..."
+  },
+  "view": {
+    "label": "Vista",
+    "toggle_columns": "Cambiar columnas"
+  },
+  "pagination": {
+    "rows_per_page": "Filas por página",
+    "page_info": "Página {{current}} de {{total}}",
+    "first": "Ir a la primera página",
+    "last": "Ir a la última página",
+    "next": "Ir a la siguiente página",
+    "previous": "Ir a la página anterior",
+    "go_to": "Ir a la página {{page}}"
+  },
+  "bulk_actions": {
+    "clear_selection": "Limpiar selección",
+    "clear_selection_tooltip": "Limpiar selección (Escape)",
+    "selected": "seleccionado",
+    "announcement": "{{count}} {{entity}} seleccionado. La barra de acciones masivas está disponible.",
+    "announcement_plural": "{{count}} {{entities}} seleccionados. La barra de acciones masivas está disponible.",
+    "aria_label": "Acciones masivas para {{count}} {{entity}} seleccionado",
+    "aria_label_plural": "Acciones masivas para {{count}} {{entities}} seleccionados",
+    "aria_lable_selected": "{{count}} seleccionados"
+  },
+  "entities": {
+    "user": "usuario",
+    "user_plural": "usuarios",
+    "task": "tarea",
+    "task_plural": "tareas",
+    "service": "servicio",
+    "service_plural": "servicios"
+  }
+}

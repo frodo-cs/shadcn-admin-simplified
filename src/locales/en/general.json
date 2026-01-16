@@ -1,0 +1,39 @@
+{
+  "title": "General",
+  "dashboard": "Dashboard",
+  "signin": "Sign in",
+  "cancel": "Cancel",
+  "confirm": "Continue",
+  "skip_main": "Skip to Main",
+  "search": {
+    "title": "Search",
+    "placeholder": "Type a command or search...",
+    "no_results": "No results were found."
+  },
+  "default": {
+    "username": "Username",
+    "email": "--"
+  },
+  "theme": {
+    "title": "Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "toggle": "Toggle theme"
+  },
+  "language": {
+    "toggle": "Toggle language",
+    "en": "English",
+    "es": "Español"
+  },
+  "coming_soon": {
+    "title": "Coming Soon!",
+    "description": "This page has not been created yet.",
+    "stay_tuned": "Stay tuned though!"
+  },
+  "signout": {
+    "title": "Sign out",
+    "description": "Are you sure you want to sign out? You will need to sign in again to access your account.",
+    "confirm": "Sign out"
+  }
+}

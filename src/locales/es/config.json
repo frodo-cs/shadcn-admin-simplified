@@ -1,0 +1,40 @@
+{
+  "drawer": {
+    "trigger": "Abrir configuración de tema",
+    "title": "Configuración del tema",
+    "description": "Ajusta la apariencia y el diseño según tus preferencias.",
+    "reset": "Restablecer",
+    "reset_aria": "Restablecer todos los ajustes a los valores predeterminados"
+  },
+  "theme": {
+    "title": "Tema",
+    "aria": "Seleccionar preferencia de tema",
+    "desc": "Elige entre la preferencia del sistema, modo claro o modo oscuro",
+    "system": "Sistema",
+    "light": "Claro",
+    "dark": "Oscuro"
+  },
+  "sidebar": {
+    "title": "Barra lateral",
+    "aria": "Seleccionar estilo de barra lateral",
+    "desc": "Elige entre un diseño de barra lateral incrustado, flotante o estándar",
+    "inset": "Incrustado",
+    "floating": "Flotante",
+    "sidebar": "Estándar"
+  },
+  "layout": {
+    "title": "Diseño",
+    "aria": "Seleccionar estilo de diseño",
+    "desc": "Elige entre el modo expandido por defecto, compacto con solo iconos o diseño completo",
+    "default": "Predeterminado",
+    "compact": "Compacto",
+    "full": "Diseño completo"
+  },
+  "direction": {
+    "title": "Dirección",
+    "aria": "Seleccionar dirección del sitio",
+    "desc": "Elige entre la dirección del sitio de izquierda a derecha o de derecha a izquierda",
+    "ltr": "Izquierda a derecha",
+    "rtl": "Derecha a izquierda"
+  }
+}

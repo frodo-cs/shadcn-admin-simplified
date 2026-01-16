@@ -1,0 +1,45 @@
+{
+  "col": {
+    "asc": "Asc",
+    "desc": "Desc",
+    "hide": "Hide"
+  },
+  "filter": {
+    "no_results": "No results found.",
+    "clear": "Clear filters",
+    "selected": "selected",
+    "reset": "Reset",
+    "placeholder": "Filter..."
+  },
+  "view": {
+    "label": "View",
+    "toggle_columns": "Toggle columns"
+  },
+  "pagination": {
+    "rows_per_page": "Rows per page",
+    "page_info": "Page {{current}} of {{total}}",
+    "first": "Go to first page",
+    "last": "Go to last page",
+    "next": "Go to next page",
+    "previous": "Go to previous page",
+    "go_to": "Go to page {{page}}"
+  },
+  "bulk_actions": {
+    "clear_selection": "Clear selection",
+    "clear_selection_tooltip": "Clear selection (Escape)",
+    "selected": "selected",
+    "announcement": "{{count}} {{entity}} selected. Bulk actions toolbar is available.",
+    "announcement_plural": "{{count}} {{entities}} selected. Bulk actions toolbar is available.",
+    "aria_label": "Bulk actions for {{count}} selected {{entity}}",
+    "aria_label_plural": "Bulk actions for {{count}} selected {{entities}}",
+    "aria_lable_selected": "{{count}} selected"
+  },
+  "entities": {
+    "user": "user",
+    "user_plural": "users",
+    "task": "task",
+    "task_plural": "tasks",
+    "service": "service",
+    "service_plural": "services"
+  }
+}

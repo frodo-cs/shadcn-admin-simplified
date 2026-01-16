@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { ChevronDownIcon } from '@radix-ui/react-icons'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { fonts } from '@/config/fonts'
+import { useTranslation } from 'react-i18next'
 import { showSubmittedData } from '@/lib/show-submitted-data'
 import { cn } from '@/lib/utils'
 import { useFont } from '@/context/font-provider'
@@ -27,10 +28,10 @@ const appearanceFormSchema = z.object({
 type AppearanceFormValues = z.infer<typeof appearanceFormSchema>
 
 export function AppearanceForm() {
+  const { t } = useTranslation('settings')
   const { font, setFont } = useFont()
   const { theme, setTheme } = useTheme()
 
-  // This can come from your database or API.
   const defaultValues: Partial<AppearanceFormValues> = {
     theme: theme as 'light' | 'dark',
     font,
@@ -56,7 +57,7 @@ export function AppearanceForm() {
           name='font'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Font</FormLabel>
+              <FormLabel>{t('appearance.fields.font.label')}</FormLabel>
               <div className='relative w-max'>
                 <FormControl>
                   <select
@@ -77,7 +78,7 @@ export function AppearanceForm() {
                 <ChevronDownIcon className='absolute end-3 top-2.5 h-4 w-4 opacity-50' />
               </div>
               <FormDescription className='font-manrope'>
-                Set the font you want to use in the dashboard.
+                {t('appearance.fields.font.description')}
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -88,9 +89,9 @@ export function AppearanceForm() {
           name='theme'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Theme</FormLabel>
+              <FormLabel>{t('appearance.fields.theme.label')}</FormLabel>
               <FormDescription>
-                Select the theme for the dashboard.
+                {t('appearance.fields.theme.description')}
               </FormDescription>
               <FormMessage />
               <RadioGroup
@@ -120,7 +121,7 @@ export function AppearanceForm() {
                       </div>
                     </div>
                     <span className='block w-full p-2 text-center font-normal'>
-                      Light
+                      {t('appearance.fields.theme.light')}
                     </span>
                   </FormLabel>
                 </FormItem>
@@ -135,10 +136,7 @@ export function AppearanceForm() {
                           <div className='h-2 w-[80px] rounded-lg bg-slate-400' />
                           <div className='h-2 w-[100px] rounded-lg bg-slate-400' />
                         </div>
-                        <div className='flex items-center space-x-2 rounded-md bg-slate-800 p-2 shadow-xs'>
-                          <div className='h-4 w-4 rounded-full bg-slate-400' />
-                          <div className='h-2 w-[100px] rounded-lg bg-slate-400' />
-                        </div>
+                        {/* Preview UI decoration elements... */}
                         <div className='flex items-center space-x-2 rounded-md bg-slate-800 p-2 shadow-xs'>
                           <div className='h-4 w-4 rounded-full bg-slate-400' />
                           <div className='h-2 w-[100px] rounded-lg bg-slate-400' />
@@ -146,7 +144,7 @@ export function AppearanceForm() {
                       </div>
                     </div>
                     <span className='block w-full p-2 text-center font-normal'>
-                      Dark
+                      {t('appearance.fields.theme.dark')}
                     </span>
                   </FormLabel>
                 </FormItem>
@@ -155,7 +153,7 @@ export function AppearanceForm() {
           )}
         />
 
-        <Button type='submit'>Update preferences</Button>
+        <Button type='submit'> {t('update')}</Button>
       </form>
     </Form>
   )

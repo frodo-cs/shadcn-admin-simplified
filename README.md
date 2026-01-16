@@ -1,62 +1,8 @@
-# Shadcn Admin Dashboard
+# Shadcn Admin Simplified
 
-Admin Dashboard UI crafted with Shadcn and Vite. Built with responsiveness and accessibility in mind.
+A streamlined, internal-use admin dashboard built with **Vite**, **React**, and **Shadcn UI**.
 
-![alt text](public/images/shadcn-admin.png)
-
-[![Sponsored by Clerk](https://img.shields.io/badge/Sponsored%20by-Clerk-5b6ee1?logo=clerk)](https://go.clerk.com/GttUAaK)
-
-I've been creating dashboard UIs at work and for my personal projects. I always wanted to make a reusable collection of dashboard UI for future projects; and here it is now. While I've created a few custom components, some of the code is directly adapted from ShadcnUI examples.
-
-> This is not a starter project (template) though. I'll probably make one in the future.
-
-## Features
-
-- Light/dark mode
-- Responsive
-- Accessible
-- With built-in Sidebar component
-- Global search command
-- 10+ pages
-- Extra custom components
-- RTL support
-
-<details>
-<summary>Customized Components (click to expand)</summary>
-
-This project uses Shadcn UI components, but some have been slightly modified for better RTL (Right-to-Left) support and other improvements. These customized components differ from the original Shadcn UI versions.
-
-If you want to update components using the Shadcn CLI (e.g., `npx shadcn@latest add <component>`), it's generally safe for non-customized components. For the listed customized ones, you may need to manually merge changes to preserve the project's modifications and avoid overwriting RTL support or other updates.
-
-> If you don't require RTL support, you can safely update the 'RTL Updated Components' via the Shadcn CLI, as these changes are primarily for RTL compatibility. The 'Modified Components' may have other customizations to consider.
-
-### Modified Components
-
-- scroll-area
-- sonner
-- separator
-
-### RTL Updated Components
-
-- alert-dialog
-- calendar
-- command
-- dialog
-- dropdown-menu
-- select
-- table
-- sheet
-- sidebar
-- switch
-
-**Notes:**
-
-- **Modified Components**: These have general updates, potentially including RTL adjustments.
-- **RTL Updated Components**: These have specific changes for RTL language support (e.g., layout, positioning).
-- For implementation details, check the source files in `src/components/ui/`.
-- All other Shadcn UI components in the project are standard and can be safely updated via the CLI.
-
-</details>
+This project is a fork of the original [shadcn-admin](https://github.com/satnaing/shadcn-admin) by satnaing. It has been modified to serve as a lightweight internal tool.
 
 ## Tech Stack
 
@@ -70,50 +16,64 @@ If you want to update components using the Shadcn CLI (e.g., `npx shadcn@latest 
 
 **Linting/Formatting:** [ESLint](https://eslint.org/) & [Prettier](https://prettier.io/)
 
-**Icons:** [Lucide Icons](https://lucide.dev/icons/), [Tabler Icons](https://tabler.io/icons) (Brand icons only)
-
-**Auth (partial):** [Clerk](https://go.clerk.com/GttUAaK)
+**Icons:** [Lucide Icons](https://lucide.dev/icons/)
 
 ## Run Locally
 
 Clone the project
 
 ```bash
-  git clone https://github.com/satnaing/shadcn-admin.git
+git clone https://github.com/frodo-cs/shadcn-admin-simplified.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd shadcn-admin
+cd shadcn-admin-simplified
 ```
 
 Install dependencies
 
 ```bash
-  pnpm install
+pnpm install
 ```
+
+Create an `.env` file based on the `.env.example` template in src/
 
 Start the server
 
 ```bash
-  pnpm run dev
+pnpm run dev
 ```
 
-## Sponsoring this project ❤️
+### Adding Languages
 
-If you find this project helpful or use this in your own work, consider [sponsoring me](https://github.com/sponsors/satnaing) to support development and maintenance. You can [buy me a coffee](https://buymeacoffee.com/satnaing) as well. Don’t worry, every penny helps. Thank you! 🙏
+Translations are organized into folders by language, with separate JSON files for each namespace (e.g., `general`, `settings`, `validation`).
 
-For questions or sponsorship inquiries, feel free to reach out at [satnaingdev@gmail.com](mailto:satnaingdev@gmail.com).
+**1. Create the files**
+Create a new folder in `src/locales/` (e.g., `es/`) and add your namespace files:
 
-### Current Sponsor
+- `src/locales/es/general.json`
+- `src/locales/es/validation.json`
+- ...and so on.
 
-- [Clerk](https://go.clerk.com/GttUAaK) - authentication and user management for the modern web
+**2. Register in `src/i18n.ts`** Import the new files and add them to the`resources` object:
 
-## Author
+```typescript
+import generalEs from './locales/es/general.json'
 
-Crafted with 🤍 by [@satnaing](https://github.com/satnaing)
+const resources = {
+  en: { ... },
+  es: {
+    general: generalEs,
+    // Add other namespaces here
+  }
+}
+
+```
+
+> **Note:** Because we use a flexible string-based approach for translations, ensure your keys match the JSON structure exactly. If a translation doesn't appear, double-check the namespace prefix (e.g., `settings:`) and the path to the key.
 
 ## License
 
-Licensed under the [MIT License](https://choosealicense.com/licenses/mit/)
+Licensed under the [MIT License](https://choosealicense.com/licenses/mit/).

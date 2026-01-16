@@ -1,0 +1,39 @@
+{
+  "title": "General",
+  "dashboard": "Panel de control",
+  "signin": "Iniciar sesión",
+  "cancel": "Cancelar",
+  "confirm": "Continuar",
+  "skip_main": "Saltar al contenido principal",
+  "search": {
+    "title": "Buscar",
+    "placeholder": "Escribe un comando o busca...",
+    "no_results": "No se encontraron resultados."
+  },
+  "default": {
+    "username": "Nombre de usuario",
+    "email": "--"
+  },
+  "theme": {
+    "title": "Tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema",
+    "toggle": "Cambiar tema"
+  },
+  "language": {
+    "toggle": "Cambiar idioma",
+    "en": "Inglés",
+    "es": "Español"
+  },
+  "coming_soon": {
+    "title": "¡Próximamente!",
+    "description": "Esta página aún no ha sido creada.",
+    "stay_tuned": "¡Mantente al tanto!"
+  },
+  "signout": {
+    "title": "Cerrar sesión",
+    "description": "¿Estás seguro de que quieres cerrar sesión? Deberás iniciar sesión nuevamente para acceder a tu cuenta.",
+    "confirm": "Cerrar sesión"
+  }
+}

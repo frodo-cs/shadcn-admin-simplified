@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { IconFacebook, IconGithub } from '@/assets/brand-icons'
+import { useTranslation } from 'react-i18next'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import {
@@ -15,33 +15,47 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { PasswordInput } from '@/components/password-input'
-
-const formSchema = z
-  .object({
-    email: z.email({
-      error: (iss) =>
-        iss.input === '' ? 'Please enter your email' : undefined,
-    }),
-    password: z
-      .string()
-      .min(1, 'Please enter your password')
-      .min(7, 'Password must be at least 7 characters long'),
-    confirmPassword: z.string().min(1, 'Please confirm your password'),
-  })
-  .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords don't match.",
-    path: ['confirmPassword'],
-  })
+import { Loader2 } from 'lucide-react'
 
 export function SignUpForm({
   className,
   ...props
 }: React.HTMLAttributes<HTMLFormElement>) {
+  const { t } = useTranslation('auth')
   const [isLoading, setIsLoading] = useState(false)
+
+  const formSchema = useMemo(
+    () =>
+      z
+        .object({
+          username: z
+            .string()
+            .min(1, t('sign_up.validation.username_required'))
+            .min(2, t('sign_up.validation.username_min'))
+            .max(30, t('sign_up.validation.username_max')),
+          email: z
+            .string()
+            .min(1, { message: t('sign_up.validation.email_required') })
+            .email({ message: t('sign_up.validation.email_invalid') }),
+          password: z
+            .string()
+            .min(1, { message: t('sign_up.validation.password_required') })
+            .min(7, { message: t('sign_up.validation.password_min') }),
+          confirmPassword: z.string().min(1, {
+            message: t('sign_up.validation.confirm_password_required'),
+          }),
+        })
+        .refine((data) => data.password === data.confirmPassword, {
+          message: t('sign_up.validation.password_mismatch'),
+          path: ['confirmPassword'],
+        }),
+    [t]
+  )
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      username: '',
       email: '',
       password: '',
       confirmPassword: '',
@@ -50,9 +64,7 @@ export function SignUpForm({
 
   function onSubmit(data: z.infer<typeof formSchema>) {
     setIsLoading(true)
-    // eslint-disable-next-line no-console
     console.log(data)
-
     setTimeout(() => {
       setIsLoading(false)
     }, 3000)
@@ -67,12 +79,31 @@ export function SignUpForm({
       >
         <FormField
           control={form.control}
+          name='username'
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t('sign_up.form.username_label')}</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder={t('sign_up.form.username_placeholder')}
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
           name='email'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t('sign_up.form.email_label')}</FormLabel>
               <FormControl>
-                <Input placeholder='name@example.com' {...field} />
+                <Input
+                  placeholder={t('sign_up.form.email_placeholder')}
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -83,7 +114,7 @@ export function SignUpForm({
           name='password'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>{t('sign_up.form.password_label')}</FormLabel>
               <FormControl>
                 <PasswordInput placeholder='********' {...field} />
               </FormControl>
@@ -96,7 +127,7 @@ export function SignUpForm({
           name='confirmPassword'
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Confirm Password</FormLabel>
+              <FormLabel>{t('sign_up.form.confirm_password_label')}</FormLabel>
               <FormControl>
                 <PasswordInput placeholder='********' {...field} />
               </FormControl>
@@ -105,38 +136,9 @@ export function SignUpForm({
           )}
         />
         <Button className='mt-2' disabled={isLoading}>
-          Create Account
+          {isLoading && <Loader2 className='mr-2 h-4 w-4 animate-spin' />}
+          {t('sign_up.submit')}
         </Button>
-
-        <div className='relative my-2'>
-          <div className='absolute inset-0 flex items-center'>
-            <span className='w-full border-t' />
-          </div>
-          <div className='relative flex justify-center text-xs uppercase'>
-            <span className='bg-background px-2 text-muted-foreground'>
-              Or continue with
-            </span>
-          </div>
-        </div>
-
-        <div className='grid grid-cols-2 gap-2'>
-          <Button
-            variant='outline'
-            className='w-full'
-            type='button'
-            disabled={isLoading}
-          >
-            <IconGithub className='h-4 w-4' /> GitHub
-          </Button>
-          <Button
-            variant='outline'
-            className='w-full'
-            type='button'
-            disabled={isLoading}
-          >
-            <IconFacebook className='h-4 w-4' /> Facebook
-          </Button>
-        </div>
       </form>
     </Form>
   )

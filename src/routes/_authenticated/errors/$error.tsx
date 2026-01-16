@@ -9,6 +9,7 @@ import { GeneralError } from '@/features/errors/general-error'
 import { MaintenanceError } from '@/features/errors/maintenance-error'
 import { NotFoundError } from '@/features/errors/not-found-error'
 import { UnauthorisedError } from '@/features/errors/unauthorized-error'
+import { LanguageSwitch } from '@/components/language-switch'
 
 export const Route = createFileRoute('/_authenticated/errors/$error')({
   component: RouteComponent,
@@ -32,6 +33,7 @@ function RouteComponent() {
       <Header fixed className='border-b'>
         <Search />
         <div className='ms-auto flex items-center space-x-4'>
+          <LanguageSwitch />
           <ThemeSwitch />
           <ConfigDrawer />
           <ProfileDropdown />
