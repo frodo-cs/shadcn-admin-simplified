@@ -1,15 +1,16 @@
-import { useTranslation } from 'react-i18next'
 import { ConfigDrawer } from '@/components/config-drawer'
 import { Header } from '@/components/layout/header'
-import { Main } from '@/components/layout/main'
 import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
 import { ThemeSwitch } from '@/components/theme-switch'
 import { LanguageSwitch } from '@/components/language-switch'
+import { ReactNode } from 'react'
 
-export function Dashboard() {
-  const { t } = useTranslation('general')
+type MainContentProps = React.HTMLAttributes<HTMLElement> & {
+  children: ReactNode
+}
 
+export function MainContent({ children }: MainContentProps) {
   return (
     <>
       {/* ===== Top Heading ===== */}
@@ -24,14 +25,7 @@ export function Dashboard() {
       </Header>
 
       {/* ===== Main ===== */}
-      <Main>
-        <div className='mb-2 flex items-center justify-between space-y-2'>
-          <h1 className='text-2xl font-bold tracking-tight'>
-            {t('dashboard')}
-          </h1>
-        </div>
-        {/* CONTENT */}
-      </Main>
+      {children}
     </>
   )
 }

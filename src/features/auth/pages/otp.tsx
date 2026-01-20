@@ -8,32 +8,32 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { AuthLayout } from '../auth-layout'
-import { ForgotPasswordForm } from './components/forgot-password-form'
+import { AuthLayout } from '../layout/auth-layout'
+import { OtpForm } from '../components/otp-form'
 
-export function ForgotPassword() {
+export function Otp() {
   const { t } = useTranslation('auth')
 
   return (
     <AuthLayout>
       <Card className='gap-4'>
         <CardHeader>
-          <CardTitle className='text-lg tracking-tight'>
-            {t('forgot_password.title')}
+          <CardTitle className='text-base tracking-tight'>
+            {t('otp.title')}
           </CardTitle>
-          <CardDescription>{t('forgot_password.description')}</CardDescription>
+          <CardDescription>{t('otp.description')}</CardDescription>
         </CardHeader>
         <CardContent>
-          <ForgotPasswordForm />
+          <OtpForm />
         </CardContent>
         <CardFooter>
-          <p className='mx-auto px-8 text-center text-sm text-balance text-muted-foreground'>
-            {t('forgot_password.no_account')}{' '}
+          <p className='px-8 text-center text-sm text-muted-foreground'>
+            {t('otp.question')}{' '}
             <Link
-              to='/sign-up'
+              to='/sign-in'
               className='underline underline-offset-4 hover:text-primary'
             >
-              {t('forgot_password.sign_up')}
+              {t('otp.resend_link')}
             </Link>
             .
           </p>

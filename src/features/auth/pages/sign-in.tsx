@@ -8,8 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { AuthLayout } from '../auth-layout'
-import { UserAuthForm } from './components/user-auth-form'
+import { AuthLayout } from '../layout/auth-layout'
+import { UserAuthForm } from '../components/user-auth-form'
 
 export function SignIn() {
   const { t } = useTranslation('auth')
