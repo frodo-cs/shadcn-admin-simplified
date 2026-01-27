@@ -46,7 +46,7 @@ export function OtpForm({ className, ...props }: OtpFormProps) {
     defaultValues: { otp: '' },
   })
 
-  const otpValue = form.watch('otp')
+  const { isValid, isSubmitting } = form.formState
 
   function onSubmit(data: z.infer<typeof formSchema>) {
     setIsLoading(true)
@@ -97,7 +97,10 @@ export function OtpForm({ className, ...props }: OtpFormProps) {
             </FormItem>
           )}
         />
-        <Button className='mt-2' disabled={otpValue.length < 6 || isLoading}>
+        <Button
+          className='mt-2'
+          disabled={!isValid || isSubmitting || isLoading}
+        >
           {t('otp.form.submit')}
         </Button>
       </form>

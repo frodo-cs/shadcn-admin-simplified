@@ -153,7 +153,7 @@ export function AppearanceForm() {
           )}
         />
 
-        <Button type='submit'> {t('update')}</Button>
+        <Button type='submit'> {t('appearance.submit')}</Button>
       </form>
     </Form>
   )

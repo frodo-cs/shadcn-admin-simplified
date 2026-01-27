@@ -1,5 +1,5 @@
 import { type LinkProps } from '@tanstack/react-router'
-import { ParseKeys } from 'i18next'
+import { type ParseKeys } from 'i18next'
 
 type BaseNavItem = {
   title: ParseKeys

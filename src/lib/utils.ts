@@ -1,8 +1,25 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import { isAxiosError } from 'axios'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
+}
+
+export function getErrorMessage(error: unknown) {
+  if (isAxiosError(error)) {
+    return error.response?.data || error.message
+  }
+
+  if (error instanceof Error) {
+    return error.message
+  }
+
+  if (error && typeof error === 'object' && 'message' in error) {
+    return String(error.message)
+  }
+
+  return 'An unexpected error occurred'
 }
 
 export function sleep(ms: number = 1000) {

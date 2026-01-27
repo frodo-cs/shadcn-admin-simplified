@@ -18,7 +18,7 @@ import { SignOutDialog } from '@/components/sign-out-dialog'
 export function ProfileDropdown() {
   const { t } = useTranslation('general')
   const [open, setOpen] = useDialogState()
-  const { auth } = useAuthStore()
+  const { user } = useAuthStore()
 
   return (
     <>
@@ -32,10 +32,10 @@ export function ProfileDropdown() {
           <DropdownMenuLabel className='font-normal'>
             <div className='flex flex-col gap-1.5'>
               <p className='text-sm leading-none font-medium'>
-                {auth.user?.username || t('default.username')}
+                {user?.username || t('default.username')}
               </p>
               <p className='text-xs leading-none text-muted-foreground'>
-                {auth.user?.email || t('default.email')}
+                {user?.email || t('default.email')}
               </p>
             </div>
           </DropdownMenuLabel>

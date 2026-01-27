@@ -23,7 +23,7 @@ export function NavUser() {
   const { t } = useTranslation('general')
   const { isMobile } = useSidebar()
   const [open, setOpen] = useDialogState()
-  const { auth } = useAuthStore()
+  const { user } = useAuthStore()
 
   return (
     <>
@@ -37,10 +37,10 @@ export function NavUser() {
               >
                 <div className='grid flex-1 text-start text-sm leading-tight'>
                   <span className='truncate font-semibold'>
-                    {auth.user?.username || t('default.username')}
+                    {user?.username || t('default.username')}
                   </span>
                   <span className='truncate text-xs'>
-                    {auth.user?.email || t('default.email')}
+                    {user?.email || t('default.email')}
                   </span>
                 </div>
                 <ChevronsUpDown className='ms-auto size-4' />
@@ -56,10 +56,10 @@ export function NavUser() {
                 <div className='flex items-center gap-2 px-1 py-1.5 text-start text-sm'>
                   <div className='grid flex-1 text-start text-sm leading-tight'>
                     <span className='truncate font-semibold'>
-                      {auth.user?.username || t('default.username')}
+                      {user?.username || t('default.username')}
                     </span>
                     <span className='truncate text-xs'>
-                      {auth.user?.email || t('default.email')}
+                      {user?.email || t('default.email')}
                     </span>
                   </div>
                 </div>

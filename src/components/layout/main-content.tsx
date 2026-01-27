@@ -4,7 +4,7 @@ import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
 import { ThemeSwitch } from '@/components/theme-switch'
 import { LanguageSwitch } from '@/components/language-switch'
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 
 type MainContentProps = React.HTMLAttributes<HTMLElement> & {
   children: ReactNode

@@ -53,10 +53,13 @@ const queryClient = new QueryClient({
     onError: (error) => {
       if (error instanceof AxiosError) {
         if (error.response?.status === 401) {
-          toast.error('Session expired!')
-          useAuthStore.getState().auth.reset()
-          const redirect = `${router.history.location.href}`
-          router.navigate({ to: '/sign-in', search: { redirect } })
+          const isLoginRequest = error.config?.url?.includes('/auth/login')
+          if (!isLoginRequest) {
+            toast.error('Session expired!')
+            useAuthStore.getState().logout()
+            const redirect = `${router.history.location.href}`
+            router.navigate({ to: '/sign-in', search: { redirect } })
+          }
         }
         if (error.response?.status === 500) {
           toast.error('Internal Server Error!')
@@ -66,7 +69,7 @@ const queryClient = new QueryClient({
           }
         }
         if (error.response?.status === 403) {
-          // router.navigate("/forbidden", { replace: true });
+          router.navigate({ to: '/403', replace: true })
         }
       }
     },
@@ -76,7 +79,13 @@ const queryClient = new QueryClient({
 // Create a new router instance
 const router = createRouter({
   routeTree,
-  context: { queryClient },
+  context: {
+    queryClient,
+    auth: {
+      user: useAuthStore.getState().user,
+      logout: useAuthStore.getState().logout,
+    },
+  },
   defaultPreload: 'intent',
   defaultPreloadStaleTime: 0,
 })
@@ -90,19 +99,43 @@ declare module '@tanstack/react-router' {
 
 // Render the app
 const rootElement = document.getElementById('root')!
+
+function App() {
+  const { user, logout } = useAuthStore()
+  return (
+    <RouterProvider
+      router={router}
+      context={{
+        auth: { user, logout },
+      }}
+    />
+  )
+}
+
+async function enableMocking() {
+  if (import.meta.env.VITE_ENVIRONMENT !== 'mock') {
+    return
+  }
+
+  const { worker } = await import('./mocks/browser')
+  return worker.start()
+}
+
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
-  root.render(
-    <StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider>
-          <FontProvider>
-            <DirectionProvider>
-              <RouterProvider router={router} />
-            </DirectionProvider>
-          </FontProvider>
-        </ThemeProvider>
-      </QueryClientProvider>
-    </StrictMode>
-  )
+  enableMocking().then(() => {
+    root.render(
+      <StrictMode>
+        <QueryClientProvider client={queryClient}>
+          <ThemeProvider>
+            <FontProvider>
+              <DirectionProvider>
+                <App />
+              </DirectionProvider>
+            </FontProvider>
+          </ThemeProvider>
+        </QueryClientProvider>
+      </StrictMode>
+    )
+  })
 }
