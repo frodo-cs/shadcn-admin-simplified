@@ -22,5 +22,10 @@
   "buttons": {
     "go_back": "Regresar",
     "back_to_home": "Ir al inicio"
+  },
+  "toasts": {
+    "content_not_modified": "¡Contenido no modificado!",
+    "session_expired": "¡Sesión expirada!",
+    "internal_server_error": "¡Error interno del servidor!"
   }
 }

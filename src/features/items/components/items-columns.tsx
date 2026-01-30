@@ -7,8 +7,9 @@ import { itemStatuses, itemTypes } from '../data/data'
 import { type Item } from '../data/schema'
 import { DataTableRowActions } from './data-table-row-actions'
 import { Badge } from '@/components/ui/badge'
+import { type TFunction } from 'i18next'
 
-export const getItemsColumns = (t: any): ColumnDef<Item>[] => [
+export const getItemsColumns = (t: TFunction): ColumnDef<Item>[] => [
   {
     id: 'select',
     header: ({ table }) => (

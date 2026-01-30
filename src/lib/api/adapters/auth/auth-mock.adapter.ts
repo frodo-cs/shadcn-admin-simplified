@@ -1,6 +1,6 @@
 import { ENDPOINTS } from '@/constants'
 import { apiClient } from '../../axios-instance'
-import { AuthUser, Credentials, IAuthAdapter } from './auth-base.adapter'
+import type { AuthUser, Credentials, IAuthAdapter } from './auth-base.adapter'
 
 interface LoginResponseMockDTO {
   accessToken: string

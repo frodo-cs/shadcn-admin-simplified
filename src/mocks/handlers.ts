@@ -7,6 +7,7 @@ faker.seed(67890)
 
 export const handlers = [
   http.post(`/${ENDPOINTS.AUTH.LOGIN}`, async ({ request }) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const body = (await request.json()) as any
 
     await sleep(1000)

@@ -1,6 +1,7 @@
 import { ENDPOINTS } from '@/constants'
-import { IItemAdapter, Item } from './item-base.adapter'
 import { apiClient } from '../../axios-instance'
+import type { Item, ItemStatus, ItemType } from '@/features/items/data/schema'
+import type { IItemAdapter } from './item-base.adapter'
 
 interface ItemResponseMockDTO {
   id: string
@@ -26,8 +27,8 @@ export class ItemAdapterMock implements IItemAdapter {
       name: dto.name,
       price: dto.price,
       description: dto.description,
-      status: dto.status,
-      type: dto.type,
+      status: dto.status as ItemStatus,
+      type: dto.type as ItemType,
       createdAt: new Date(dto.createdAt),
       updatedAt: new Date(dto.updatedAt),
     }

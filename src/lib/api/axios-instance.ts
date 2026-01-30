@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useAuthStore } from '@/stores/auth-store'
 import { ENDPOINTS, ROUTES } from '@/constants'
+import { toast } from 'sonner'
 
 export const apiClient = axios.create({
   timeout: 10000,
@@ -32,18 +33,18 @@ apiClient.interceptors.response.use(
         `/${ENDPOINTS.AUTH.LOGIN}`
       )
       if (!isLoginRequest) {
-        console.error('Unauthorized access')
         useAuthStore.getState().logout()
         window.location.href = ROUTES.SIGN_IN
+        toast.error(error.message)
       }
     }
 
     if (error.response?.status === 403) {
-      console.error('Forbidden access')
+      toast.error(error.message)
     }
 
     if (error.response?.status >= 500) {
-      console.error('Server error:', error.response.data)
+      toast.error(error.message)
     }
 
     return Promise.reject(error)

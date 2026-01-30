@@ -64,10 +64,11 @@ export function SignUpForm({
 
   function onSubmit(data: z.infer<typeof formSchema>) {
     setIsLoading(true)
-    console.log(data)
     setTimeout(() => {
       setIsLoading(false)
     }, 3000)
+    // eslint-disable-next-line no-console
+    console.log(data)
   }
 
   return (

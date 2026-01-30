@@ -1,5 +1,5 @@
-import { IAuthAdapter } from './adapters/auth/auth-base.adapter'
-import { IItemAdapter } from './adapters/items/item-base.adapter'
+import type { IAuthAdapter } from './adapters/auth/auth-base.adapter'
+import type { IItemAdapter } from './adapters/items/item-base.adapter'
 
 // MOCK
 import { AuthAdapterMock } from './adapters/auth/auth-mock.adapter'

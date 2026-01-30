@@ -13,6 +13,8 @@ const itemTypeSchema = z.union([
   z.literal('combo'),
 ])
 
+export type ItemType = z.infer<typeof itemTypeSchema>
+
 const itemSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -23,6 +25,7 @@ const itemSchema = z.object({
   createdAt: z.coerce.date(),
   updatedAt: z.coerce.date(),
 })
+
 export type Item = z.infer<typeof itemSchema>
 
 export const itemListSchema = z.array(itemSchema)
