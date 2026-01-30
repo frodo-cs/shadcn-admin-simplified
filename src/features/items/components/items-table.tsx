@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import {
   type SortingState,
   type VisibilityState,
@@ -22,18 +23,19 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { DataTablePagination, DataTableToolbar } from '@/components/data-table'
-import { roles } from '../data/data'
-import { type User } from '../data/schema'
+import { itemTypes } from '../data/data'
+import { type Item } from '../data/schema'
 import { DataTableBulkActions } from './data-table-bulk-actions'
-import { usersColumns as columns } from './users-columns'
+import { getItemsColumns } from './items-columns'
 
 type DataTableProps = {
-  data: User[]
+  data: Item[]
   search: Record<string, unknown>
   navigate: NavigateFn
 }
 
-export function UsersTable({ data, search, navigate }: DataTableProps) {
+export function ItemsTable({ data, search, navigate }: DataTableProps) {
+  const { t } = useTranslation('items')
   // Local UI-only states
   const [rowSelection, setRowSelection] = useState({})
   const [columnVisibility, setColumnVisibility] = useState<VisibilityState>({})
@@ -56,12 +58,13 @@ export function UsersTable({ data, search, navigate }: DataTableProps) {
     pagination: { defaultPage: 1, defaultPageSize: 10 },
     globalFilter: { enabled: false },
     columnFilters: [
-      // username per-column text filter
-      { columnId: 'username', searchKey: 'username', type: 'string' },
+      { columnId: 'name', searchKey: 'name', type: 'string' },
       { columnId: 'status', searchKey: 'status', type: 'array' },
-      { columnId: 'role', searchKey: 'role', type: 'array' },
+      { columnId: 'type', searchKey: 'type', type: 'array' },
     ],
   })
+
+  const columns = useMemo(() => getItemsColumns(t), [t])
 
   // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({
@@ -101,23 +104,25 @@ export function UsersTable({ data, search, navigate }: DataTableProps) {
     >
       <DataTableToolbar
         table={table}
-        searchPlaceholder='Filter users...'
-        searchKey='username'
+        searchPlaceholder={t('table.filters.placeholder')}
+        searchKey='name'
         filters={[
           {
             columnId: 'status',
-            title: 'Status',
+            title: t('table.filters.status'),
             options: [
-              { label: 'Active', value: 'active' },
-              { label: 'Inactive', value: 'inactive' },
-              { label: 'Invited', value: 'invited' },
-              { label: 'Suspended', value: 'suspended' },
+              { label: t('table.filters.status_options.available'), value: 'available' },
+              { label: t('table.filters.status_options.unavailable'), value: 'unavailable' },
+              { label: t('table.filters.status_options.discontinued'), value: 'discontinued' },
             ],
           },
           {
-            columnId: 'role',
-            title: 'Role',
-            options: roles.map((role) => ({ ...role })),
+            columnId: 'type',
+            title: t('table.filters.type'),
+            options: itemTypes.map((itemType) => ({
+              ...itemType,
+              label: t(`general.${itemType.value}`, { ns: 'general', defaultValue: itemType.label })
+            })),
           },
         ]}
       />
@@ -140,9 +145,9 @@ export function UsersTable({ data, search, navigate }: DataTableProps) {
                       {header.isPlaceholder
                         ? null
                         : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
                     </TableHead>
                   )
                 })}
@@ -180,7 +185,7 @@ export function UsersTable({ data, search, navigate }: DataTableProps) {
                   colSpan={columns.length}
                   className='h-24 text-center'
                 >
-                  No results.
+                  {t('table.no_results')}
                 </TableCell>
               </TableRow>
             )}

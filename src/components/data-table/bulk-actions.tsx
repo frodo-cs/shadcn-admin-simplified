@@ -41,9 +41,9 @@ export function DataTableBulkActions<TData>({
 
   // Announce selection changes to screen readers
 
-  const translatedEntity = t(
-    `entities.${entityName}${selectedCount !== 1 ? '_plural' : ''}`
-  )
+  const translatedEntity = t(`entities.${entityName}`, {
+    count: selectedCount,
+  })
 
   useEffect(() => {
     if (selectedCount > 0) {
@@ -108,7 +108,7 @@ export function DataTableBulkActions<TData>({
         const isFromDropdownTrigger =
           target?.getAttribute('data-slot') === 'dropdown-menu-trigger' ||
           activeElement?.getAttribute('data-slot') ===
-            'dropdown-menu-trigger' ||
+          'dropdown-menu-trigger' ||
           target?.closest('[data-slot="dropdown-menu-trigger"]') ||
           activeElement?.closest('[data-slot="dropdown-menu-trigger"]')
 
@@ -204,14 +204,16 @@ export function DataTableBulkActions<TData>({
             <Badge
               variant='default'
               className='min-w-8 rounded-lg'
-              aria-label={t('bulk_actions.aria_lable_selected', {
+              aria-label={t('bulk_actions.aria_label_selected', {
                 count: selectedCount,
               })}
             >
               {selectedCount}
             </Badge>{' '}
             <span className='hidden sm:inline'>{translatedEntity}</span>{' '}
-            {t('bulk_actions.selected')}
+            {t('bulk_actions.selected', {
+              count: selectedCount,
+            })}
           </div>
 
           <Separator

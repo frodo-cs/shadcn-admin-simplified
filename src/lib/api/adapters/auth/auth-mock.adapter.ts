@@ -1,5 +1,6 @@
-import { apiClient } from '../axios-instance'
-import type { IAuthAdapter, Credentials, AuthUser } from './base-auth.adapter'
+import { ENDPOINTS } from '@/constants'
+import { apiClient } from '../../axios-instance'
+import { AuthUser, Credentials, IAuthAdapter } from './auth-base.adapter'
 
 interface LoginResponseMockDTO {
   accessToken: string
@@ -10,10 +11,13 @@ interface LoginResponseMockDTO {
   }
 }
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000'
-
 export class AuthAdapterMock implements IAuthAdapter {
+  private baseUrl: string
+
+  constructor(baseUrl: string) {
+    this.baseUrl = baseUrl
+  }
+
   private transform(dto: LoginResponseMockDTO): AuthUser {
     return {
       username: dto.user.username,
@@ -24,7 +28,7 @@ export class AuthAdapterMock implements IAuthAdapter {
 
   async login(credentials: Credentials): Promise<AuthUser> {
     const response = await apiClient.post<LoginResponseMockDTO>(
-      `${API_BASE_URL}/auth/login`,
+      `${this.baseUrl}/${ENDPOINTS.AUTH.LOGIN}`,
       {
         identifier: credentials.identifier,
         password: credentials.password,
@@ -32,10 +36,5 @@ export class AuthAdapterMock implements IAuthAdapter {
     )
 
     return this.transform(response.data)
-  }
-
-  async logout(): Promise<{ success: boolean }> {
-    await apiClient.post(`${API_BASE_URL}/auth/logout`)
-    return { success: true }
   }
 }

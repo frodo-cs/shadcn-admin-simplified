@@ -1,5 +1,6 @@
-import { apiClient } from '../axios-instance'
-import type { IAuthAdapter, Credentials, AuthUser } from './base-auth.adapter'
+import { ENDPOINTS } from '@/constants'
+import { apiClient } from '../../axios-instance'
+import { AuthUser, Credentials, IAuthAdapter } from './auth-base.adapter'
 
 interface LoginResponseV1DTO {
   accessToken: string
@@ -10,10 +11,13 @@ interface LoginResponseV1DTO {
   }
 }
 
-const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api/v1'
-
 export class AuthAdapterV1 implements IAuthAdapter {
+  private baseUrl: string
+
+  constructor(baseUrl: string) {
+    this.baseUrl = baseUrl
+  }
+
   private transform(dto: LoginResponseV1DTO): AuthUser {
     return {
       username: dto.user.username,
@@ -24,7 +28,7 @@ export class AuthAdapterV1 implements IAuthAdapter {
 
   async login(credentials: Credentials): Promise<AuthUser> {
     const response = await apiClient.post<LoginResponseV1DTO>(
-      `${API_BASE_URL}/auth/login`,
+      `${this.baseUrl}/${ENDPOINTS.AUTH.LOGIN}`,
       {
         identifier: credentials.identifier,
         password: credentials.password,
@@ -32,10 +36,5 @@ export class AuthAdapterV1 implements IAuthAdapter {
     )
 
     return this.transform(response.data)
-  }
-
-  async logout(): Promise<{ success: boolean }> {
-    await apiClient.post(`${API_BASE_URL}/auth/logout`)
-    return { success: true }
   }
 }

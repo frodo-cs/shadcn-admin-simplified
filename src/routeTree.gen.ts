@@ -21,8 +21,8 @@ import { Route as authSignInRouteImport } from './routes/(auth)/sign-in'
 import { Route as authOtpRouteImport } from './routes/(auth)/otp'
 import { Route as authForgotPasswordRouteImport } from './routes/(auth)/forgot-password'
 import { Route as AuthenticatedSettingsRouteRouteImport } from './routes/_authenticated/settings/route'
-import { Route as AuthenticatedUsersIndexRouteImport } from './routes/_authenticated/users/index'
 import { Route as AuthenticatedSettingsIndexRouteImport } from './routes/_authenticated/settings/index'
+import { Route as AuthenticatedItemsIndexRouteImport } from './routes/_authenticated/items/index'
 import { Route as AuthenticatedHelpCenterIndexRouteImport } from './routes/_authenticated/help-center/index'
 import { Route as AuthenticatedSettingsAppearanceRouteImport } from './routes/_authenticated/settings/appearance'
 import { Route as AuthenticatedErrorsErrorRouteImport } from './routes/_authenticated/errors/$error'
@@ -87,17 +87,17 @@ const AuthenticatedSettingsRouteRoute =
     path: '/settings',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
-const AuthenticatedUsersIndexRoute = AuthenticatedUsersIndexRouteImport.update({
-  id: '/users/',
-  path: '/users/',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
 const AuthenticatedSettingsIndexRoute =
   AuthenticatedSettingsIndexRouteImport.update({
     id: '/',
     path: '/',
     getParentRoute: () => AuthenticatedSettingsRouteRoute,
   } as any)
+const AuthenticatedItemsIndexRoute = AuthenticatedItemsIndexRouteImport.update({
+  id: '/items/',
+  path: '/items/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedHelpCenterIndexRoute =
   AuthenticatedHelpCenterIndexRouteImport.update({
     id: '/help-center/',
@@ -132,8 +132,8 @@ export interface FileRoutesByFullPath {
   '/errors/$error': typeof AuthenticatedErrorsErrorRoute
   '/settings/appearance': typeof AuthenticatedSettingsAppearanceRoute
   '/help-center': typeof AuthenticatedHelpCenterIndexRoute
+  '/items': typeof AuthenticatedItemsIndexRoute
   '/settings/': typeof AuthenticatedSettingsIndexRoute
-  '/users': typeof AuthenticatedUsersIndexRoute
 }
 export interface FileRoutesByTo {
   '/forgot-password': typeof authForgotPasswordRoute
@@ -149,8 +149,8 @@ export interface FileRoutesByTo {
   '/errors/$error': typeof AuthenticatedErrorsErrorRoute
   '/settings/appearance': typeof AuthenticatedSettingsAppearanceRoute
   '/help-center': typeof AuthenticatedHelpCenterIndexRoute
+  '/items': typeof AuthenticatedItemsIndexRoute
   '/settings': typeof AuthenticatedSettingsIndexRoute
-  '/users': typeof AuthenticatedUsersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -169,8 +169,8 @@ export interface FileRoutesById {
   '/_authenticated/errors/$error': typeof AuthenticatedErrorsErrorRoute
   '/_authenticated/settings/appearance': typeof AuthenticatedSettingsAppearanceRoute
   '/_authenticated/help-center/': typeof AuthenticatedHelpCenterIndexRoute
+  '/_authenticated/items/': typeof AuthenticatedItemsIndexRoute
   '/_authenticated/settings/': typeof AuthenticatedSettingsIndexRoute
-  '/_authenticated/users/': typeof AuthenticatedUsersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -189,8 +189,8 @@ export interface FileRouteTypes {
     | '/errors/$error'
     | '/settings/appearance'
     | '/help-center'
+    | '/items'
     | '/settings/'
-    | '/users'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/forgot-password'
@@ -206,8 +206,8 @@ export interface FileRouteTypes {
     | '/errors/$error'
     | '/settings/appearance'
     | '/help-center'
+    | '/items'
     | '/settings'
-    | '/users'
   id:
     | '__root__'
     | '/_authenticated'
@@ -225,8 +225,8 @@ export interface FileRouteTypes {
     | '/_authenticated/errors/$error'
     | '/_authenticated/settings/appearance'
     | '/_authenticated/help-center/'
+    | '/_authenticated/items/'
     | '/_authenticated/settings/'
-    | '/_authenticated/users/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -328,19 +328,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedSettingsRouteRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/users/': {
-      id: '/_authenticated/users/'
-      path: '/users'
-      fullPath: '/users'
-      preLoaderRoute: typeof AuthenticatedUsersIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
     '/_authenticated/settings/': {
       id: '/_authenticated/settings/'
       path: '/'
       fullPath: '/settings/'
       preLoaderRoute: typeof AuthenticatedSettingsIndexRouteImport
       parentRoute: typeof AuthenticatedSettingsRouteRoute
+    }
+    '/_authenticated/items/': {
+      id: '/_authenticated/items/'
+      path: '/items'
+      fullPath: '/items'
+      preLoaderRoute: typeof AuthenticatedItemsIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/help-center/': {
       id: '/_authenticated/help-center/'
@@ -387,7 +387,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
   AuthenticatedErrorsErrorRoute: typeof AuthenticatedErrorsErrorRoute
   AuthenticatedHelpCenterIndexRoute: typeof AuthenticatedHelpCenterIndexRoute
-  AuthenticatedUsersIndexRoute: typeof AuthenticatedUsersIndexRoute
+  AuthenticatedItemsIndexRoute: typeof AuthenticatedItemsIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -395,7 +395,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
   AuthenticatedErrorsErrorRoute: AuthenticatedErrorsErrorRoute,
   AuthenticatedHelpCenterIndexRoute: AuthenticatedHelpCenterIndexRoute,
-  AuthenticatedUsersIndexRoute: AuthenticatedUsersIndexRoute,
+  AuthenticatedItemsIndexRoute: AuthenticatedItemsIndexRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =

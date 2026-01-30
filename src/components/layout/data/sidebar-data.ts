@@ -1,5 +1,6 @@
 import { LayoutDashboard, Settings, UserCog, Users } from 'lucide-react'
 import { type SidebarData } from '../types'
+import { ROUTES } from '@/constants'
 
 export const sidebarData: SidebarData = {
   navGroups: [
@@ -8,12 +9,13 @@ export const sidebarData: SidebarData = {
       items: [
         {
           title: 'general:dashboard',
-          url: '/',
+          url: ROUTES.HOME,
           icon: LayoutDashboard,
         },
+        // TODO: add sidebar items
         {
-          title: 'users:title',
-          url: '/users',
+          title: 'items:title',
+          url: ROUTES.ITEMS,
           icon: Users,
         },
       ],
@@ -27,12 +29,12 @@ export const sidebarData: SidebarData = {
           items: [
             {
               title: 'settings:profile.title',
-              url: '/settings',
+              url: ROUTES.SETTINGS,
               icon: UserCog,
             },
             {
               title: 'settings:appearance.title',
-              url: '/settings/appearance',
+              url: ROUTES.APPEARANCE,
               icon: UserCog,
             },
           ],

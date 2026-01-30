@@ -5,6 +5,8 @@
   "cancel": "Cancel",
   "confirm": "Continue",
   "skip_main": "Skip to Main",
+  "loading": "Loading...",
+  "admin": "Admin panel",
   "search": {
     "title": "Search",
     "placeholder": "Type a command or search...",

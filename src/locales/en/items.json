@@ -1,0 +1,90 @@
+{
+  "title": "Item List",
+  "subtitle": "Manage your items and their types here.",
+  "primary_button": "Add Item",
+  "table": {
+    "header": {
+      "name": "Name",
+      "description": "Description",
+      "price": "Price",
+      "status": "Status",
+      "type": "Type"
+    },
+    "filters": {
+      "placeholder": "Filter items...",
+      "status": "Status",
+      "type": "Type",
+      "status_options": {
+        "available": "Available",
+        "unavailable": "Unavailable",
+        "discontinued": "Discontinued"
+      }
+    },
+    "no_results": "No results."
+  },
+  "dialog": {
+    "add": {
+      "title": "Add New Item",
+      "description": "Create new item here. Click save when you're done."
+    },
+    "edit": {
+      "title": "Edit Item",
+      "description": "Update the item here. Click save when you're done."
+    },
+    "form": {
+      "name": "Name",
+      "description": "Description",
+      "price": "Price",
+      "type": "Type",
+      "status": "Status",
+      "placeholders": {
+        "name": "Enter item name",
+        "description": "Enter item description",
+        "price": "0.00",
+        "type": "Select a type",
+        "status": "Select a status"
+      },
+      "validation": {
+        "name_required": "Name is required.",
+        "description_required": "Description is required.",
+        "price_required": "Price is required.",
+        "type_required": "Type is required.",
+        "status_required": "Status is required."
+      },
+      "save": "Save changes"
+    },
+    "delete": {
+      "title": "Delete Item",
+      "desc": "Are you sure you want to delete <1>{{name}}</1>?<br />This action will permanently remove the item from the system. This cannot be undone.",
+      "label": "Item Name:",
+      "confirm_placeholder": "Enter item name to confirm deletion.",
+      "warning": "Warning!",
+      "warning_desc": "Please be careful, this operation can not be rolled back.",
+      "confirm_btn": "Delete"
+    },
+    "multi_delete": {
+      "title": "Delete {{count}} items",
+      "title_single": "Delete {{count}} item",
+      "desc": "Are you sure you want to delete the selected items? <br />This action cannot be undone.",
+      "confirm_word_desc": "Confirm by typing \"{{word}}\":",
+      "confirm_placeholder": "Type \"{{word}}\" to confirm.",
+      "toast": {
+        "loading": "Deleting items...",
+        "success": "Deleted {{count}} items",
+        "success_single": "Deleted {{count}} item",
+        "error": "Error"
+      }
+    }
+  },
+  "bulk_actions": {
+    "set_available": "Set as Available",
+    "set_unavailable": "Set as Unavailable",
+    "set_discontinued": "Set as Discontinued",
+    "toast": {
+      "loading": "Updating items...",
+      "success": "Updated {{count}} items to {{status}}",
+      "success_single": "Updated {{count}} item to {{status}}",
+      "error": "Error updating items"
+    }
+  }
+}

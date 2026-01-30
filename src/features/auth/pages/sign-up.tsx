@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/card'
 import { AuthLayout } from '../layout/auth-layout'
 import { SignUpForm } from '../components/sign-up-form'
+import { ROUTES } from '@/constants'
 
 export function SignUp() {
   const { t } = useTranslation('auth')
@@ -24,7 +25,7 @@ export function SignUp() {
             {t('sign_up.description')} <br />
             {t('sign_up.already_have_account')}{' '}
             <Link
-              to='/sign-in'
+              to={ROUTES.SIGN_IN}
               className='underline underline-offset-4 hover:text-primary'
             >
               {t('sign_up.sign_in_link')}

@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/card'
 import { AuthLayout } from '../layout/auth-layout'
 import { OtpForm } from '../components/otp-form'
+import { ROUTES } from '@/constants'
 
 export function Otp() {
   const { t } = useTranslation('auth')
@@ -30,7 +31,7 @@ export function Otp() {
           <p className='px-8 text-center text-sm text-muted-foreground'>
             {t('otp.question')}{' '}
             <Link
-              to='/sign-in'
+              to={ROUTES.SIGN_IN}
               className='underline underline-offset-4 hover:text-primary'
             >
               {t('otp.resend_link')}

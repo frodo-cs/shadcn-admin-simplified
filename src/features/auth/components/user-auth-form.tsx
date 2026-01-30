@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next'
 import { cn, getErrorMessage } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { useLogin } from '../hooks/use-login'
-import type { AuthUser } from '@/lib/api/adapters/base-auth.adapter'
+import type { AuthUser } from '@/lib/api/adapters/auth/auth-base.adapter'
 import {
   Form,
   FormControl,

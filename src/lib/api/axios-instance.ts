@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useAuthStore } from '@/stores/auth-store'
+import { ENDPOINTS, ROUTES } from '@/constants'
 
 export const apiClient = axios.create({
   timeout: 10000,
@@ -27,11 +28,13 @@ apiClient.interceptors.response.use(
   },
   (error) => {
     if (error.response?.status === 401) {
-      const isLoginRequest = error.config?.url?.includes('/auth/login')
+      const isLoginRequest = error.config?.url?.includes(
+        `/${ENDPOINTS.AUTH.LOGIN}`
+      )
       if (!isLoginRequest) {
         console.error('Unauthorized access')
         useAuthStore.getState().logout()
-        window.location.href = '/sign-in'
+        window.location.href = ROUTES.SIGN_IN
       }
     }
 

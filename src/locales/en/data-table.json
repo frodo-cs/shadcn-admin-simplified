@@ -27,19 +27,19 @@
   "bulk_actions": {
     "clear_selection": "Clear selection",
     "clear_selection_tooltip": "Clear selection (Escape)",
-    "selected": "selected",
-    "announcement": "{{count}} {{entity}} selected. Bulk actions toolbar is available.",
-    "announcement_plural": "{{count}} {{entities}} selected. Bulk actions toolbar is available.",
-    "aria_label": "Bulk actions for {{count}} selected {{entity}}",
-    "aria_label_plural": "Bulk actions for {{count}} selected {{entities}}",
-    "aria_lable_selected": "{{count}} selected"
+    "selected_one": "selected",
+    "selected_other": "selected",
+    "announcement_one": "{{count}} {{entity}} selected. Bulk actions toolbar is available.",
+    "announcement_other": "{{count}} {{entities}} selected. Bulk actions toolbar is available.",
+    "aria_label_one": "Bulk actions for {{count}} selected {{entity}}",
+    "aria_label_other": "Bulk actions for {{count}} selected {{entities}}",
+    "aria_label_selected_one": "{{count}} selected",
+    "aria_label_selected_other": "{{count}} selected"
   },
   "entities": {
-    "user": "user",
-    "user_plural": "users",
-    "task": "task",
-    "task_plural": "tasks",
-    "service": "service",
-    "service_plural": "services"
+    "item_one": "item",
+    "item_other": "items",
+    "service_one": "service",
+    "service_other": "services"
   }
 }

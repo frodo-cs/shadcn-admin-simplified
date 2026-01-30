@@ -18,6 +18,7 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 import { SignOutDialog } from '@/components/sign-out-dialog'
+import { ROUTES } from '@/constants'
 
 export function NavUser() {
   const { t } = useTranslation('general')
@@ -66,7 +67,7 @@ export function NavUser() {
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>
-                <Link to='/settings'>{t('settings:title')}</Link>
+                <Link to={ROUTES.SETTINGS}>{t('settings:title')}</Link>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem

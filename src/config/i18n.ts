@@ -7,7 +7,7 @@ import dataTableEn from '../locales/en/data-table.json'
 import errorEn from '../locales/en/error.json'
 import generalEn from '../locales/en/general.json'
 import settingsEn from '../locales/en/settings.json'
-import usersEn from '../locales/en/users.json'
+import itemsEn from '../locales/en/items.json'
 import authEn from '../locales/en/auth.json'
 import configEn from '../locales/en/config.json'
 
@@ -16,7 +16,7 @@ import dataTableEs from '../locales/es/data-table.json'
 import errorEs from '../locales/es/error.json'
 import generalEs from '../locales/es/general.json'
 import settingsEs from '../locales/es/settings.json'
-import usersEs from '../locales/es/users.json'
+import itemsEs from '../locales/es/items.json'
 import authEs from '../locales/es/auth.json'
 import configEs from '../locales/es/config.json'
 
@@ -24,7 +24,7 @@ const resources = {
   en: {
     general: generalEn,
     settings: settingsEn,
-    users: usersEn,
+    items: itemsEn,
     error: errorEn,
     dataTable: dataTableEn,
     auth: authEn,
@@ -33,7 +33,7 @@ const resources = {
   es: {
     general: generalEs,
     settings: settingsEs,
-    users: usersEs,
+    items: itemsEs,
     error: errorEs,
     dataTable: dataTableEs,
     auth: authEs,

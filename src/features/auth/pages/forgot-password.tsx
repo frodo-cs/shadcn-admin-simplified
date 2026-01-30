@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/card'
 import { AuthLayout } from '../layout/auth-layout'
 import { ForgotPasswordForm } from '../components/forgot-password-form'
+import { ROUTES } from '@/constants'
 
 export function ForgotPassword() {
   const { t } = useTranslation('auth')
@@ -30,7 +31,7 @@ export function ForgotPassword() {
           <p className='mx-auto px-8 text-center text-sm text-balance text-muted-foreground'>
             {t('forgot_password.no_account')}{' '}
             <Link
-              to='/sign-up'
+              to={ROUTES.SIGN_UP}
               className='underline underline-offset-4 hover:text-primary'
             >
               {t('forgot_password.sign_up')}

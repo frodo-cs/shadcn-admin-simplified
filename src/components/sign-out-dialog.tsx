@@ -2,6 +2,7 @@ import { useNavigate, useLocation } from '@tanstack/react-router'
 import { useTranslation } from 'react-i18next'
 import { useAuthStore } from '@/stores/auth-store'
 import { ConfirmDialog } from '@/components/confirm-dialog'
+import { ROUTES } from '@/constants'
 
 interface SignOutDialogProps {
   open: boolean
@@ -19,7 +20,7 @@ export function SignOutDialog({ open, onOpenChange }: SignOutDialogProps) {
     // Preserve current location for redirect after sign-in
     const currentPath = location.href
     navigate({
-      to: '/sign-in',
+      to: ROUTES.SIGN_IN,
       search: { redirect: currentPath },
       replace: true,
     })

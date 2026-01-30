@@ -27,19 +27,19 @@
   "bulk_actions": {
     "clear_selection": "Limpiar selección",
     "clear_selection_tooltip": "Limpiar selección (Escape)",
-    "selected": "seleccionado",
-    "announcement": "{{count}} {{entity}} seleccionado. La barra de acciones masivas está disponible.",
-    "announcement_plural": "{{count}} {{entities}} seleccionados. La barra de acciones masivas está disponible.",
-    "aria_label": "Acciones masivas para {{count}} {{entity}} seleccionado",
-    "aria_label_plural": "Acciones masivas para {{count}} {{entities}} seleccionados",
-    "aria_lable_selected": "{{count}} seleccionados"
+    "selected_one": "seleccionado",
+    "selected_other": "seleccionados",
+    "announcement_one": "{{count}} {{entity}} seleccionado. La barra de acciones masivas está disponible.",
+    "announcement_other": "{{count}} {{entities}} seleccionados. La barra de acciones masivas está disponible.",
+    "aria_label_one": "Acciones masivas para {{count}} {{entity}} seleccionado",
+    "aria_label_other": "Acciones masivas para {{count}} {{entities}} seleccionados",
+    "aria_label_selected_one": "{{count}} seleccionado",
+    "aria_label_selected_other": "{{count}} seleccionados"
   },
   "entities": {
-    "user": "usuario",
-    "user_plural": "usuarios",
-    "task": "tarea",
-    "task_plural": "tareas",
-    "service": "servicio",
-    "service_plural": "servicios"
+    "item_one": "item",
+    "item_other": "items",
+    "service_one": "servicio",
+    "service_other": "servicios"
   }
 }

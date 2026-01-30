@@ -1,28 +1,21 @@
-import { UsersActionDialog } from './users-action-dialog'
-import { UsersDeleteDialog } from './users-delete-dialog'
-import { UsersInviteDialog } from './users-invite-dialog'
-import { useUsers } from './users-provider'
+import { ItemsActionDialog } from './items-action-dialog'
+import { ItemsDeleteDialog } from './items-delete-dialog'
+import { useItems } from './items-provider'
 
-export function UsersDialogs() {
-  const { open, setOpen, currentRow, setCurrentRow } = useUsers()
+export function ItemsDialogs() {
+  const { open, setOpen, currentRow, setCurrentRow } = useItems()
   return (
     <>
-      <UsersActionDialog
-        key='user-add'
+      <ItemsActionDialog
+        key='item-add'
         open={open === 'add'}
         onOpenChange={() => setOpen('add')}
       />
 
-      <UsersInviteDialog
-        key='user-invite'
-        open={open === 'invite'}
-        onOpenChange={() => setOpen('invite')}
-      />
-
       {currentRow && (
         <>
-          <UsersActionDialog
-            key={`user-edit-${currentRow.id}`}
+          <ItemsActionDialog
+            key={`item-edit-${currentRow.id}`}
             open={open === 'edit'}
             onOpenChange={() => {
               setOpen('edit')
@@ -33,8 +26,8 @@ export function UsersDialogs() {
             currentRow={currentRow}
           />
 
-          <UsersDeleteDialog
-            key={`user-delete-${currentRow.id}`}
+          <ItemsDeleteDialog
+            key={`item-delete-${currentRow.id}`}
             open={open === 'delete'}
             onOpenChange={() => {
               setOpen('delete')

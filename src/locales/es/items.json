@@ -1,0 +1,90 @@
+{
+  "title": "Lista de Artículos",
+  "subtitle": "Gestione sus artículos y sus tipos aquí.",
+  "primary_button": "Agregar Artículo",
+  "table": {
+    "header": {
+      "name": "Nombre",
+      "description": "Descripción",
+      "price": "Precio",
+      "status": "Estado",
+      "type": "Tipo"
+    },
+    "filters": {
+      "placeholder": "Filtrar artículos...",
+      "status": "Estado",
+      "type": "Tipo",
+      "status_options": {
+        "available": "Disponible",
+        "unavailable": "No disponible",
+        "discontinued": "Descontinuado"
+      }
+    },
+    "no_results": "Sin resultados."
+  },
+  "dialog": {
+    "add": {
+      "title": "Agregar Nuevo Artículo",
+      "description": "Cree un nuevo artículo aquí. Haga clic en guardar cuando haya terminado."
+    },
+    "edit": {
+      "title": "Editar Artículo",
+      "description": "Actualice el artículo aquí. Haga clic en guardar cuando haya terminado."
+    },
+    "form": {
+      "name": "Nombre",
+      "description": "Descripción",
+      "price": "Precio",
+      "type": "Tipo",
+      "status": "Estado",
+      "placeholders": {
+        "name": "Ingrese el nombre del artículo",
+        "description": "Ingrese la descripción del artículo",
+        "price": "0.00",
+        "type": "Seleccione un tipo",
+        "status": "Seleccione un estado"
+      },
+      "validation": {
+        "name_required": "El nombre es obligatorio.",
+        "description_required": "La descripción es obligatoria.",
+        "price_required": "El precio es obligatorio.",
+        "type_required": "El tipo es obligatorio.",
+        "status_required": "El estado es obligatorio."
+      },
+      "save": "Guardar cambios"
+    },
+    "delete": {
+      "title": "Eliminar Artículo",
+      "desc": "¿Está seguro de que desea eliminar <1>{{name}}</1>?<br />Esta acción eliminará permanentemente el artículo del sistema. Esto no se puede deshacer.",
+      "label": "Nombre del Artículo:",
+      "confirm_placeholder": "Ingrese el nombre del artículo para confirmar la eliminación.",
+      "warning": "¡Advertencia!",
+      "warning_desc": "Tenga cuidado, esta operación no se puede deshacer.",
+      "confirm_btn": "Eliminar"
+    },
+    "multi_delete": {
+      "title": "Eliminar {{count}} artículos",
+      "title_single": "Eliminar {{count}} artículo",
+      "desc": "¿Está seguro de que desea eliminar los artículos seleccionados? <br />Esta acción no se puede deshacer.",
+      "confirm_word_desc": "Confirme escribiendo \"{{word}}\":",
+      "confirm_placeholder": "Escriba \"{{word}}\" para confirmar.",
+      "toast": {
+        "loading": "Eliminando artículos...",
+        "success": "Se eliminaron {{count}} artículos",
+        "success_single": "Se eliminó {{count}} artículo",
+        "error": "Error"
+      }
+    }
+  },
+  "bulk_actions": {
+    "set_available": "Marcar como Disponible",
+    "set_unavailable": "Marcar como No Disponible",
+    "set_discontinued": "Marcar como Descontinuado",
+    "toast": {
+      "loading": "Actualizando artículos...",
+      "success": "Se actualizaron {{count}} artículos a {{status}}",
+      "success_single": "Se actualizó {{count}} artículo a {{status}}",
+      "error": "Error al actualizar artículos"
+    }
+  }
+}

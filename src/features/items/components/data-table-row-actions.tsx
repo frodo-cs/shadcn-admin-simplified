@@ -1,6 +1,7 @@
+import { useTranslation } from 'react-i18next'
 import { DotsHorizontalIcon } from '@radix-ui/react-icons'
 import { type Row } from '@tanstack/react-table'
-import { Trash2, UserPen } from 'lucide-react'
+import { Trash2, Edit } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -10,15 +11,16 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { type User } from '../data/schema'
-import { useUsers } from './users-provider'
+import { type Item } from '../data/schema'
+import { useItems } from './items-provider'
 
 type DataTableRowActionsProps = {
-  row: Row<User>
+  row: Row<Item>
 }
 
 export function DataTableRowActions({ row }: DataTableRowActionsProps) {
-  const { setOpen, setCurrentRow } = useUsers()
+  const { t } = useTranslation('items')
+  const { setOpen, setCurrentRow } = useItems()
   return (
     <>
       <DropdownMenu modal={false}>
@@ -28,7 +30,7 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
             className='flex h-8 w-8 p-0 data-[state=open]:bg-muted'
           >
             <DotsHorizontalIcon className='h-4 w-4' />
-            <span className='sr-only'>Open menu</span>
+            <span className='sr-only'>{t('general.open_menu', { ns: 'general', defaultValue: 'Open menu' })}</span>
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align='end' className='w-[160px]'>
@@ -38,9 +40,9 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
               setOpen('edit')
             }}
           >
-            Edit
+            {t('dialog.edit.title').split(' ')[0]} {/* Edit */}
             <DropdownMenuShortcut>
-              <UserPen size={16} />
+              <Edit size={16} />
             </DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
@@ -51,7 +53,7 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
             }}
             className='text-red-500!'
           >
-            Delete
+            {t('dialog.delete.confirm_btn')}
             <DropdownMenuShortcut>
               <Trash2 size={16} />
             </DropdownMenuShortcut>

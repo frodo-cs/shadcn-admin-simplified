@@ -8,8 +8,11 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 import { Button } from '../ui/button'
+import { ROUTES } from '@/constants'
+import { useTranslation } from 'react-i18next'
 
 export function AppTitle() {
+  const { t } = useTranslation('general')
   const { setOpenMobile } = useSidebar()
   return (
     <SidebarMenu>
@@ -21,13 +24,13 @@ export function AppTitle() {
         >
           <div>
             <Link
-              to='/'
+              to={ROUTES.HOME}
               onClick={() => setOpenMobile(false)}
               className='grid flex-1 text-start text-sm leading-tight'
             >
               {/* TODO: change */}
-              <span className='truncate font-bold'>Shadcn-Admin</span>
-              <span className='truncate text-xs'>Vite + ShadcnUI</span>
+              <span className='truncate font-bold'>Admin</span>
+              <span className='truncate text-xs'>{t('admin')}</span>
             </Link>
             <ToggleSidebar />
           </div>

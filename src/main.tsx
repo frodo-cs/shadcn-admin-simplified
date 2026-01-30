@@ -18,6 +18,7 @@ import { ThemeProvider } from './context/theme-provider'
 import { routeTree } from './routeTree.gen'
 // Styles
 import './styles/index.css'
+import { ENDPOINTS, ROUTES } from './constants'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -53,23 +54,23 @@ const queryClient = new QueryClient({
     onError: (error) => {
       if (error instanceof AxiosError) {
         if (error.response?.status === 401) {
-          const isLoginRequest = error.config?.url?.includes('/auth/login')
+          const isLoginRequest = error.config?.url?.includes(`/${ENDPOINTS.AUTH.LOGIN}`)
           if (!isLoginRequest) {
             toast.error('Session expired!')
             useAuthStore.getState().logout()
             const redirect = `${router.history.location.href}`
-            router.navigate({ to: '/sign-in', search: { redirect } })
+            router.navigate({ to: ROUTES.SIGN_IN, search: { redirect } })
           }
         }
         if (error.response?.status === 500) {
           toast.error('Internal Server Error!')
           // Only navigate to error page in production to avoid disrupting HMR in development
           if (import.meta.env.PROD) {
-            router.navigate({ to: '/500' })
+            router.navigate({ to: ROUTES.SERVER_ERROR })
           }
         }
         if (error.response?.status === 403) {
-          router.navigate({ to: '/403', replace: true })
+          router.navigate({ to: ROUTES.FORBIDDEN, replace: true })
         }
       }
     },

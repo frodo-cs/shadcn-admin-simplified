@@ -1,7 +1,6 @@
-import { AuthUser } from '@/lib/api/adapters/base-auth.adapter'
+import { AuthUser } from '@/lib/api/adapters/auth/auth-base.adapter'
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
-
 
 interface AuthState {
   user: AuthUser | null

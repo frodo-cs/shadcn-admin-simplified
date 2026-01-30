@@ -11,5 +11,4 @@ export interface AuthUser {
 
 export interface IAuthAdapter {
   login(credentials: Credentials): Promise<AuthUser>
-  logout(): Promise<{ success: boolean }>
 }

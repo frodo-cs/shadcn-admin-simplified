@@ -8,6 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { useTranslation } from 'react-i18next'
 
 type SelectDropdownProps = {
   onValueChange?: (value: string) => void
@@ -30,6 +31,7 @@ export function SelectDropdown({
   className = '',
   isControlled = false,
 }: SelectDropdownProps) {
+  const { t } = useTranslation('general')
   const defaultState = isControlled
     ? { value: defaultValue, onValueChange }
     : { defaultValue, onValueChange }
@@ -45,7 +47,7 @@ export function SelectDropdown({
           <SelectItem disabled value='loading' className='h-14'>
             <div className='flex items-center justify-center gap-2'>
               <Loader className='h-5 w-5 animate-spin' />
-              Loading...
+              {t('loading')}
             </div>
           </SelectItem>
         ) : (
