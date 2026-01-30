@@ -7,7 +7,7 @@ import { FontProvider } from './context/font-provider'
 import { ThemeProvider } from './context/theme-provider'
 import './styles/index.css'
 import { queryClient } from './query-client'
-import { App } from './App'
+import { App } from './app'
 
 async function enableMocking() {
   if (import.meta.env.VITE_ENVIRONMENT !== 'mock') {
