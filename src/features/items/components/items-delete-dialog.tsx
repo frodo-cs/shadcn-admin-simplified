@@ -53,7 +53,10 @@ export function ItemsDeleteDialog({
               i18nKey='dialog.delete.desc'
               ns='items'
               values={{ name: currentRow.name }}
-              components={[<br key='br' />, <span key='name' className='font-bold' />]}
+              components={[
+                <br key='br' />,
+                <span key='name' className='font-bold' />,
+              ]}
             />
           </div>
 

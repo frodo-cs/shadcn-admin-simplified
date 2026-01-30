@@ -1,7 +1,7 @@
 import { toast } from 'sonner'
-import { getErrorMessage } from './utils';
+import { getErrorMessage } from './utils'
 
 export function handleServerError(error: unknown) {
-  const message = getErrorMessage(error);
-  toast.error(message);
+  const message = getErrorMessage(error)
+  toast.error(message)
 }

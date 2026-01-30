@@ -75,7 +75,9 @@ export function UserAuthForm({
       {
         loading: t('sign_in.toast.loading'),
         success: (user: AuthUser) =>
-          t('sign_in.toast.success', { identifier: user.username || data.identifier }),
+          t('sign_in.toast.success', {
+            identifier: user.username || data.identifier,
+          }),
         error: (error: unknown) =>
           t('sign_in.toast.error', { error: getErrorMessage(error) }),
       }

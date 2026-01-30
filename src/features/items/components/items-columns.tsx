@@ -56,10 +56,15 @@ export const getItemsColumns = (t: TFunction): ColumnDef<Item>[] => [
   {
     accessorKey: 'description',
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title={t('table.header.description')} />
+      <DataTableColumnHeader
+        column={column}
+        title={t('table.header.description')}
+      />
     ),
     cell: ({ row }) => (
-      <LongText className='max-w-36 ps-3'>{row.getValue('description')}</LongText>
+      <LongText className='max-w-36 ps-3'>
+        {row.getValue('description')}
+      </LongText>
     ),
     meta: {
       className: cn(
@@ -100,7 +105,8 @@ export const getItemsColumns = (t: TFunction): ColumnDef<Item>[] => [
           </Badge>
         </div>
       )
-    }, filterFn: (row, id, value) => {
+    },
+    filterFn: (row, id, value) => {
       return value.includes(row.getValue(id))
     },
     enableHiding: false,

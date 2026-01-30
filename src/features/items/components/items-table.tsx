@@ -111,9 +111,18 @@ export function ItemsTable({ data, search, navigate }: DataTableProps) {
             columnId: 'status',
             title: t('table.filters.status'),
             options: [
-              { label: t('table.filters.status_options.available'), value: 'available' },
-              { label: t('table.filters.status_options.unavailable'), value: 'unavailable' },
-              { label: t('table.filters.status_options.discontinued'), value: 'discontinued' },
+              {
+                label: t('table.filters.status_options.available'),
+                value: 'available',
+              },
+              {
+                label: t('table.filters.status_options.unavailable'),
+                value: 'unavailable',
+              },
+              {
+                label: t('table.filters.status_options.discontinued'),
+                value: 'discontinued',
+              },
             ],
           },
           {
@@ -122,7 +131,9 @@ export function ItemsTable({ data, search, navigate }: DataTableProps) {
             options: itemTypes.map((itemType) => ({
               value: itemType.value,
               icon: itemType.icon,
-              label: t(`table.filters.type_options.${itemType.value}`, { defaultValue: itemType.value })
+              label: t(`table.filters.type_options.${itemType.value}`, {
+                defaultValue: itemType.value,
+              }),
             })),
           },
         ]}
@@ -146,9 +157,9 @@ export function ItemsTable({ data, search, navigate }: DataTableProps) {
                       {header.isPlaceholder
                         ? null
                         : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
                     </TableHead>
                   )
                 })}

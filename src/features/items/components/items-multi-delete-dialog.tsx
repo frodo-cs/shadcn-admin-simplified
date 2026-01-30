@@ -31,7 +31,9 @@ export function ItemsMultiDeleteDialog<TData>({
 
   const handleDelete = () => {
     if (value.trim() !== CONFIRM_WORD) {
-      toast.error(t('dialog.multi_delete.confirm_placeholder', { word: CONFIRM_WORD }))
+      toast.error(
+        t('dialog.multi_delete.confirm_placeholder', { word: CONFIRM_WORD })
+      )
       return
     }
 
@@ -66,8 +68,8 @@ export function ItemsMultiDeleteDialog<TData>({
           {selectedRows.length > 1
             ? t('dialog.multi_delete.title', { count: selectedRows.length })
             : t('dialog.multi_delete.title_single', {
-              count: selectedRows.length,
-            })}
+                count: selectedRows.length,
+              })}
         </span>
       }
       desc={

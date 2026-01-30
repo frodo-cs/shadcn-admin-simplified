@@ -18,7 +18,11 @@ const itemsSearchSchema = z.object({
     .optional()
     .catch([]),
   type: z
-    .array(z.enum(itemTypes.map((r) => r.value as (typeof itemTypes)[number]['value'])))
+    .array(
+      z.enum(
+        itemTypes.map((r) => r.value as (typeof itemTypes)[number]['value'])
+      )
+    )
     .optional()
     .catch([]),
   // Per-column text filter

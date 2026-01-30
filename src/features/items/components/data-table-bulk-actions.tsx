@@ -34,7 +34,10 @@ export function DataTableBulkActions<TData>({
         const statusLabel = t(`table.filters.status_options.${status}`)
         return count > 1
           ? t('bulk_actions.toast.success', { count, status: statusLabel })
-          : t('bulk_actions.toast.success_single', { count, status: statusLabel })
+          : t('bulk_actions.toast.success_single', {
+              count,
+              status: statusLabel,
+            })
       },
       error: t('bulk_actions.toast.error'),
     })
@@ -73,7 +76,9 @@ export function DataTableBulkActions<TData>({
               title={t('bulk_actions.set_unavailable')}
             >
               <XCircle size={16} />
-              <span className='sr-only'>{t('bulk_actions.set_unavailable')}</span>
+              <span className='sr-only'>
+                {t('bulk_actions.set_unavailable')}
+              </span>
             </Button>
           </TooltipTrigger>
           <TooltipContent>
@@ -92,7 +97,9 @@ export function DataTableBulkActions<TData>({
               title={t('bulk_actions.set_discontinued')}
             >
               <Ban size={16} />
-              <span className='sr-only'>{t('bulk_actions.set_discontinued')}</span>
+              <span className='sr-only'>
+                {t('bulk_actions.set_discontinued')}
+              </span>
             </Button>
           </TooltipTrigger>
           <TooltipContent>
@@ -107,8 +114,12 @@ export function DataTableBulkActions<TData>({
               size='icon'
               onClick={() => setShowDeleteConfirm(true)}
               className='size-8'
-              aria-label={t('dialog.multi_delete.title', { count: selectedRows.length })}
-              title={t('dialog.multi_delete.title', { count: selectedRows.length })}
+              aria-label={t('dialog.multi_delete.title', {
+                count: selectedRows.length,
+              })}
+              title={t('dialog.multi_delete.title', {
+                count: selectedRows.length,
+              })}
             >
               <Trash2 size={16} />
               <span className='sr-only'>
@@ -117,7 +128,9 @@ export function DataTableBulkActions<TData>({
             </Button>
           </TooltipTrigger>
           <TooltipContent>
-            <p>{t('dialog.multi_delete.title', { count: selectedRows.length })}</p>
+            <p>
+              {t('dialog.multi_delete.title', { count: selectedRows.length })}
+            </p>
           </TooltipContent>
         </Tooltip>
       </BulkActionsToolbar>

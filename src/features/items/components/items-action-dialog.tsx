@@ -63,17 +63,17 @@ export function ItemsActionDialog({
     resolver: zodResolver(formSchema),
     defaultValues: isEdit
       ? {
-        ...currentRow,
-        isEdit,
-      }
+          ...currentRow,
+          isEdit,
+        }
       : {
-        name: '',
-        description: '',
-        price: 0,
-        type: '',
-        status: '',
-        isEdit,
-      },
+          name: '',
+          description: '',
+          price: 0,
+          type: '',
+          status: '',
+          isEdit,
+        },
   })
 
   const onSubmit = (values: ItemForm) => {
