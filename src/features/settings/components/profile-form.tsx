@@ -14,8 +14,14 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { useEffect } from 'react'
+import type { User } from '../schemas/user'
 
-export function ProfileForm() {
+interface ProfileFormProps {
+  initialData?: User
+}
+
+export function ProfileForm({ initialData }: ProfileFormProps) {
   const { t } = useTranslation('settings')
 
   const formSchema = useMemo(
@@ -39,11 +45,20 @@ export function ProfileForm() {
   const form = useForm<ProfileFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: '',
-      email: '',
+      username: initialData?.username || '',
+      email: initialData?.email || '',
     },
     mode: 'onChange',
   })
+
+  useEffect(() => {
+    if (initialData) {
+      form.reset({
+        username: initialData.username,
+        email: initialData.email,
+      })
+    }
+  }, [initialData, form])
 
   return (
     <Form {...form}>

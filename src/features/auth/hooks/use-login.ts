@@ -1,8 +1,8 @@
 import { useMutation } from '@tanstack/react-query'
 import { useAuthStore } from '@/stores/auth-store'
 import { login } from '../api/login'
-import type { Credentials } from '@/lib/api/adapters/auth/auth-base.adapter'
 import { toast } from 'sonner'
+import { type Credentials } from '../schemas/auth'
 
 export const useLogin = () => {
   const { setAuth } = useAuthStore()

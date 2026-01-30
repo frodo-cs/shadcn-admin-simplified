@@ -1,6 +1,7 @@
 import { ENDPOINTS } from '@/constants'
 import { apiClient } from '../../axios-instance'
-import type { AuthUser, Credentials, IAuthAdapter } from './auth-base.adapter'
+import type { IAuthAdapter } from './auth-base.adapter'
+import type { AuthUser, Credentials } from '@/features/auth/schemas/auth'
 
 interface LoginResponseV1DTO {
   accessToken: string

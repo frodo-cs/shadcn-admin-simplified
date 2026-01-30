@@ -50,4 +50,17 @@ export const handlers = [
 
     return HttpResponse.json(items)
   }),
+
+  http.get(`/${ENDPOINTS.SETTINGS.GET}`, async () => {
+    await sleep(1000)
+    const user = {
+      id: faker.string.uuid(),
+      username: faker.commerce.productName(),
+      email: faker.internet.email(),
+      createdAt: faker.date.past().toISOString(),
+      updatedAt: faker.date.recent().toISOString(),
+    }
+
+    return HttpResponse.json(user)
+  }),
 ]

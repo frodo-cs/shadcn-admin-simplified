@@ -24,7 +24,7 @@ import {
 } from '@/components/ui/table'
 import { DataTablePagination, DataTableToolbar } from '@/components/data-table'
 import { itemTypes } from '../data/data'
-import { type Item } from '../data/schema'
+import { type Item } from '../schemas/item'
 import { DataTableBulkActions } from './data-table-bulk-actions'
 import { getItemsColumns } from './items-columns'
 
@@ -157,9 +157,9 @@ export function ItemsTable({ data, search, navigate }: DataTableProps) {
                       {header.isPlaceholder
                         ? null
                         : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
                     </TableHead>
                   )
                 })}

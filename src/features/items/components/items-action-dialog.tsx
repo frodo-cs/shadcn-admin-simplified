@@ -26,7 +26,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { SelectDropdown } from '@/components/select-dropdown'
 import { itemTypes } from '../data/data'
-import { type Item } from '../data/schema'
+import { type Item } from '../schemas/item'
 
 type ItemActionDialogProps = {
   currentRow?: Item
@@ -63,17 +63,17 @@ export function ItemsActionDialog({
     resolver: zodResolver(formSchema),
     defaultValues: isEdit
       ? {
-          ...currentRow,
-          isEdit,
-        }
+        ...currentRow,
+        isEdit,
+      }
       : {
-          name: '',
-          description: '',
-          price: 0,
-          type: '',
-          status: '',
-          isEdit,
-        },
+        name: '',
+        description: '',
+        price: 0,
+        type: '',
+        status: '',
+        isEdit,
+      },
   })
 
   const onSubmit = (values: ItemForm) => {

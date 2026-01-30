@@ -1,5 +1,5 @@
 import { Shield, Package, Layers } from 'lucide-react'
-import { type ItemStatus } from './schema'
+import { type ItemStatus } from '../schemas/item'
 
 export const itemStatuses = new Map<ItemStatus, string>([
   [

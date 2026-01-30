@@ -11,7 +11,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip'
 import { DataTableBulkActions as BulkActionsToolbar } from '@/components/data-table'
-import { type ItemStatus } from '../data/schema'
+import { type ItemStatus } from '../schemas/item'
 import { ItemsMultiDeleteDialog } from './items-multi-delete-dialog'
 
 type DataTableBulkActionsProps<TData> = {
@@ -35,9 +35,9 @@ export function DataTableBulkActions<TData>({
         return count > 1
           ? t('bulk_actions.toast.success', { count, status: statusLabel })
           : t('bulk_actions.toast.success_single', {
-              count,
-              status: statusLabel,
-            })
+            count,
+            status: statusLabel,
+          })
       },
       error: t('bulk_actions.toast.error'),
     })

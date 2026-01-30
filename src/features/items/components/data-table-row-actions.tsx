@@ -11,7 +11,7 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { type Item } from '../data/schema'
+import { type Item } from '../schemas/item'
 import { useItems } from './items-provider'
 
 type DataTableRowActionsProps = {
@@ -31,7 +31,7 @@ export function DataTableRowActions({ row }: DataTableRowActionsProps) {
           >
             <DotsHorizontalIcon className='h-4 w-4' />
             <span className='sr-only'>
-              {t('open_menu', { ns: 'general', defaultValue: 'Open menu' })}
+              {t('general:open_menu', { defaultValue: 'Open menu' })}
             </span>
           </Button>
         </DropdownMenuTrigger>

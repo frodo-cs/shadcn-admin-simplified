@@ -4,9 +4,8 @@ export const ENDPOINTS = {
   },
   ITEMS: {
     GET: 'items',
-    CREATE: 'items',
-    UPDATE: 'items',
-    DELETE: 'items',
-    GET_ONE: 'items/:id',
+  },
+  SETTINGS: {
+    GET: 'settings',
   },
 }

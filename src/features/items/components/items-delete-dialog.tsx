@@ -8,7 +8,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { ConfirmDialog } from '@/components/confirm-dialog'
-import { type Item } from '../data/schema'
+import { type Item } from '../schemas/item'
 
 type ItemDeleteDialogProps = {
   open: boolean

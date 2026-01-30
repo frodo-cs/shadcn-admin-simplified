@@ -1,6 +1,6 @@
 import { ENDPOINTS } from '@/constants'
 import { apiClient } from '../../axios-instance'
-import type { Item, ItemStatus, ItemType } from '@/features/items/data/schema'
+import type { Item, ItemStatus, ItemType } from '@/features/items/schemas/item'
 import type { IItemAdapter } from './item-base.adapter'
 
 interface ItemResponseMockDTO {

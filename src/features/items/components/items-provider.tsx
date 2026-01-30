@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import useDialogState from '@/hooks/use-dialog-state'
-import { type Item } from '../data/schema'
+import { type Item } from '../schemas/item'
 
 type ItemsDialogType = 'add' | 'edit' | 'delete'
 
