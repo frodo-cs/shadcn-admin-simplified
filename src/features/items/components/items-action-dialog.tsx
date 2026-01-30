@@ -181,11 +181,8 @@ export function ItemsActionDialog({
                       onValueChange={field.onChange}
                       placeholder={t('dialog.form.placeholders.type')}
                       className='col-span-4'
-                      items={itemTypes.map(({ label, value }) => ({
-                        label: t(`general.${value}`, {
-                          ns: 'general',
-                          defaultValue: label,
-                        }),
+                      items={itemTypes.map(({ value }) => ({
+                        label: t(`table.filters.type_options.${value}`),
                         value,
                       }))}
                     />

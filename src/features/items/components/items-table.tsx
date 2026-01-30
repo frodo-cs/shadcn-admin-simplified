@@ -45,7 +45,7 @@ export function ItemsTable({ data, search, navigate }: DataTableProps) {
   // const [columnFilters, onColumnFiltersChange] = useState<ColumnFiltersState>([])
   // const [pagination, onPaginationChange] = useState<PaginationState>({ pageIndex: 0, pageSize: 10 })
 
-  // Synced with URL states (keys/defaults mirror users route search schema)
+  // Synced with URL states (keys/defaults mirror items route search schema)
   const {
     columnFilters,
     onColumnFiltersChange,
@@ -120,8 +120,9 @@ export function ItemsTable({ data, search, navigate }: DataTableProps) {
             columnId: 'type',
             title: t('table.filters.type'),
             options: itemTypes.map((itemType) => ({
-              ...itemType,
-              label: t(`general.${itemType.value}`, { ns: 'general', defaultValue: itemType.label })
+              value: itemType.value,
+              icon: itemType.icon,
+              label: t(`table.filters.type_options.${itemType.value}`, { defaultValue: itemType.value })
             })),
           },
         ]}

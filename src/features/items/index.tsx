@@ -17,7 +17,7 @@ export function Items() {
 
   const { data: items, isLoading } = useItems()
 
-  if (isLoading) return <div>{t('general.loading', { ns: 'general' })}</div>
+  if (isLoading) return <div>{t('loading', { ns: 'general' })}</div>
 
   return (
     <ItemsProvider>

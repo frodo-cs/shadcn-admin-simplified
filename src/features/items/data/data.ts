@@ -1,4 +1,4 @@
-import { Shield, UserCheck, Users } from 'lucide-react'
+import { Shield, Package, Layers } from 'lucide-react'
 import { type ItemStatus } from './schema'
 
 export const itemStatuses = new Map<ItemStatus, string>([
@@ -15,18 +15,15 @@ export const itemStatuses = new Map<ItemStatus, string>([
 
 export const itemTypes = [
   {
-    label: 'Service',
     value: 'service',
     icon: Shield,
   },
   {
-    label: 'Product',
     value: 'product',
-    icon: UserCheck,
+    icon: Package,
   },
   {
-    label: 'Combo',
     value: 'combo',
-    icon: Users,
+    icon: Layers,
   },
 ] as const

@@ -18,6 +18,11 @@
         "available": "Disponible",
         "unavailable": "No disponible",
         "discontinued": "Descontinuado"
+      },
+      "type_options": {
+        "service": "Servicio",
+        "product": "Producto",
+        "combo": "Combo"
       }
     },
     "no_results": "Sin resultados."

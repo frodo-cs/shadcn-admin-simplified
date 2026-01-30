@@ -7,6 +7,7 @@
   "skip_main": "Saltar al contenido principal",
   "loading": "Cargando...",
   "admin": "Panel de administración",
+  "open_menu": "Abrir menú",
   "search": {
     "title": "Buscar",
     "placeholder": "Escribe un comando o busca...",

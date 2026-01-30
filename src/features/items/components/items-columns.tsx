@@ -112,19 +112,19 @@ export const getItemsColumns = (t: any): ColumnDef<Item>[] => [
     ),
     cell: ({ row }) => {
       const { type } = row.original
-      const userType = itemTypes.find(({ value }) => value === type)
+      const itemType = itemTypes.find(({ value }) => value === type)
 
-      if (!userType) {
+      if (!itemType) {
         return null
       }
 
       return (
         <div className='flex items-center gap-x-2'>
-          {userType.icon && (
-            <userType.icon size={16} className='text-muted-foreground' />
+          {itemType.icon && (
+            <itemType.icon size={16} className='text-muted-foreground' />
           )}
           <span className='text-sm capitalize'>
-            {t(`general.${type}`, { ns: 'general', defaultValue: row.getValue('type') })}
+            {t(`table.filters.type_options.${type}`)}
           </span>
         </div>
       )

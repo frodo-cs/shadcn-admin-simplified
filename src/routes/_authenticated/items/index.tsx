@@ -10,20 +10,19 @@ const itemsSearchSchema = z.object({
   status: z
     .array(
       z.union([
-        z.literal('active'),
-        z.literal('inactive'),
-        z.literal('invited'),
-        z.literal('suspended'),
+        z.literal('available'),
+        z.literal('unavailable'),
+        z.literal('discontinued'),
       ])
     )
     .optional()
     .catch([]),
-  role: z
+  type: z
     .array(z.enum(itemTypes.map((r) => r.value as (typeof itemTypes)[number]['value'])))
     .optional()
     .catch([]),
-  // Per-column text filter (example for username)
-  username: z.string().optional().catch(''),
+  // Per-column text filter
+  name: z.string().optional().catch(''),
 })
 
 export const Route = createFileRoute('/_authenticated/items/')({
