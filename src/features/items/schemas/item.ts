@@ -1,13 +1,13 @@
 import { z } from 'zod'
 
-const itemStatusSchema = z.union([
+export const itemStatusSchema = z.union([
   z.literal('available'),
   z.literal('unavailable'),
   z.literal('discontinued'),
 ])
 export type ItemStatus = z.infer<typeof itemStatusSchema>
 
-const itemTypeSchema = z.union([
+export const itemTypeSchema = z.union([
   z.literal('service'),
   z.literal('product'),
   z.literal('combo'),
@@ -28,4 +28,16 @@ const itemSchema = z.object({
 
 export type Item = z.infer<typeof itemSchema>
 
-export const itemListSchema = z.array(itemSchema)
+export const createItemSchema = itemSchema.omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+})
+export type CreateItem = z.infer<typeof createItemSchema>
+
+export const updateItemSchema = itemSchema.partial().omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+})
+export type UpdateItem = z.infer<typeof updateItemSchema>

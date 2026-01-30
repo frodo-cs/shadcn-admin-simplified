@@ -10,7 +10,7 @@
       },
       "email": {
         "label": "Email",
-        "placeholder": "Select a verified email to display"
+        "placeholder": "Email"
       },
       "submit": "Update profile"
     },
@@ -21,22 +21,5 @@
       "email_required": "Please enter your email",
       "email_invalid": "Please enter a valid email address"
     }
-  },
-  "appearance": {
-    "title": "Appearance",
-    "description": "Customize the appearance of the app. Automatically switch between day and night themes.",
-    "fields": {
-      "font": {
-        "label": "Font",
-        "description": "Set the font you want to use in the dashboard."
-      },
-      "theme": {
-        "label": "Theme",
-        "description": "Select the theme for the dashboard.",
-        "light": "Light",
-        "dark": "Dark"
-      }
-    },
-    "submit": "Update appearance"
   }
 }

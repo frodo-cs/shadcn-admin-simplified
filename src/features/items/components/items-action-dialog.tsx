@@ -5,8 +5,9 @@ import { useTranslation } from 'react-i18next'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { showSubmittedData } from '@/lib/show-submitted-data'
 import { Button } from '@/components/ui/button'
+import { useCreateItem } from '../hooks/use-create-item'
+import { useUpdateItem } from '../hooks/use-update-item'
 import {
   Dialog,
   DialogContent,
@@ -26,7 +27,11 @@ import {
 import { Input } from '@/components/ui/input'
 import { SelectDropdown } from '@/components/select-dropdown'
 import { itemTypes } from '../data/data'
-import { type Item } from '../schemas/item'
+import {
+  type Item,
+  itemStatusSchema,
+  itemTypeSchema,
+} from '../schemas/item'
 
 type ItemActionDialogProps = {
   currentRow?: Item
@@ -50,8 +55,8 @@ export function ItemsActionDialog({
           .string()
           .min(1, t('dialog.form.validation.description_required')),
         price: z.number().min(1, t('dialog.form.validation.price_required')),
-        type: z.string().min(1, t('dialog.form.validation.type_required')),
-        status: z.string().min(1, t('dialog.form.validation.status_required')),
+        type: itemTypeSchema,
+        status: itemStatusSchema,
         isEdit: z.boolean(),
       }),
     [t]
@@ -70,16 +75,36 @@ export function ItemsActionDialog({
         name: '',
         description: '',
         price: 0,
-        type: '',
-        status: '',
+        type: 'product',
+        status: 'available',
         isEdit,
       },
   })
 
+  const { mutate: createItem, isPending: isCreating } = useCreateItem()
+  const { mutate: updateItem, isPending: isUpdating } = useUpdateItem()
+
   const onSubmit = (values: ItemForm) => {
-    form.reset()
-    showSubmittedData(values)
-    onOpenChange(false)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { isEdit: _, ...itemData } = values
+    if (isEdit) {
+      updateItem(
+        { id: currentRow.id, item: itemData },
+        {
+          onSuccess: () => {
+            onOpenChange(false)
+            form.reset()
+          },
+        }
+      )
+    } else {
+      createItem(values, {
+        onSuccess: () => {
+          onOpenChange(false)
+          form.reset()
+        },
+      })
+    }
   }
 
   return (
@@ -226,7 +251,11 @@ export function ItemsActionDialog({
           </Form>
         </div>
         <DialogFooter>
-          <Button type='submit' form='item-form'>
+          <Button
+            type='submit'
+            form='item-form'
+            disabled={isCreating || isUpdating}
+          >
             {t('dialog.form.save')}
           </Button>
         </DialogFooter>

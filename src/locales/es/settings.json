@@ -10,7 +10,7 @@
       },
       "email": {
         "label": "Correo electrónico",
-        "placeholder": "Selecciona un correo verificado para mostrar"
+        "placeholder": "Correo electrónico"
       },
       "submit": "Actualizar perfil"
     },
@@ -21,22 +21,5 @@
       "email_required": "Por favor, ingresa tu correo electrónico.",
       "email_invalid": "Por favor, ingresa una dirección de correo válida."
     }
-  },
-  "appearance": {
-    "title": "Apariencia",
-    "description": "Personaliza la apariencia de la aplicación. Cambia automáticamente entre los temas de día y noche.",
-    "fields": {
-      "font": {
-        "label": "Fuente",
-        "description": "Establece la fuente que deseas utilizar en el panel de control."
-      },
-      "theme": {
-        "label": "Tema",
-        "description": "Selecciona el tema para el panel de control.",
-        "light": "Claro",
-        "dark": "Oscuro"
-      }
-    },
-    "submit": "Actualizar apariencia"
   }
 }

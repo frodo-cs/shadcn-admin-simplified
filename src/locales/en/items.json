@@ -91,5 +91,13 @@
       "success_single": "Updated {{count}} item to {{status}}",
       "error": "Error updating items"
     }
+  },
+  "messages": {
+    "create_success": "Item created successfully.",
+    "create_error": "Failed to create item.",
+    "update_success": "Item updated successfully.",
+    "update_error": "Failed to update item.",
+    "delete_success": "Item deleted successfully.",
+    "delete_error": "Failed to delete item."
   }
 }

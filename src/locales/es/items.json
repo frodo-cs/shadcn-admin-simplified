@@ -91,5 +91,13 @@
       "success_single": "Se actualizó {{count}} artículo a {{status}}",
       "error": "Error al actualizar artículos"
     }
+  },
+  "messages": {
+    "create_success": "Artículo creado con éxito.",
+    "create_error": "Error al crear el artículo.",
+    "update_success": "Artículo actualizado con éxito.",
+    "update_error": "Error al actualizar el artículo.",
+    "delete_success": "Artículo eliminado con éxito.",
+    "delete_error": "Error al eliminar el artículo."
   }
 }

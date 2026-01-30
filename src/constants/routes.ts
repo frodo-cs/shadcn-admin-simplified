@@ -5,7 +5,6 @@ export const ROUTES = {
   FORGOT_PASSWORD: '/forgot-password',
   ITEMS: '/items',
   SETTINGS: '/settings',
-  APPEARANCE: '/settings/appearance',
   FORBIDDEN: '/403',
   NOT_FOUND: '/404',
   SERVER_ERROR: '/500',

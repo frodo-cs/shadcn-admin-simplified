@@ -30,7 +30,7 @@ const ADAPTERS = {
   },
 }
 
-export type AdapterVersion = keyof typeof ADAPTERS
+type AdapterVersion = keyof typeof ADAPTERS
 
 function getAdapterVersion() {
   const version = (import.meta.env.VITE_ENVIRONMENT || 'mock') as AdapterVersion

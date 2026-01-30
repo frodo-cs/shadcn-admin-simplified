@@ -6,6 +6,7 @@ import { faker } from '@faker-js/faker'
 faker.seed(67890)
 
 export const handlers = [
+  // AUTH
   http.post(`/${ENDPOINTS.AUTH.LOGIN}`, async ({ request }) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const body = (await request.json()) as any
@@ -29,6 +30,7 @@ export const handlers = [
     return HttpResponse.json('Invalid credentials', { status: 401 })
   }),
 
+  // ITEMS
   http.get(`/${ENDPOINTS.ITEMS.GET}`, async () => {
     await sleep(1000)
     const items = Array.from({ length: 500 }, () => {
@@ -51,6 +53,36 @@ export const handlers = [
     return HttpResponse.json(items)
   }),
 
+  http.post(`/${ENDPOINTS.ITEMS.GET}`, async ({ request }) => {
+    const body = (await request.json()) as any
+    await sleep(1000)
+    const newItem = {
+      ...body,
+      id: faker.string.uuid(),
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+    }
+    return HttpResponse.json(newItem, { status: 201 })
+  }),
+
+  http.put(`/${ENDPOINTS.ITEMS.GET}/:id`, async ({ params, request }) => {
+    const { id } = params
+    const body = (await request.json()) as any
+    await sleep(1000)
+    const updatedItem = {
+      ...body,
+      id: id as string,
+      updatedAt: new Date().toISOString(),
+    }
+    return HttpResponse.json(updatedItem)
+  }),
+
+  http.delete(`/${ENDPOINTS.ITEMS.GET}/:id`, async () => {
+    await sleep(1000)
+    return new HttpResponse(null, { status: 204 })
+  }),
+
+  // SETTINGS
   http.get(`/${ENDPOINTS.SETTINGS.GET}`, async () => {
     await sleep(1000)
     const user = {

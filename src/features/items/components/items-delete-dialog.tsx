@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import { useTranslation, Trans } from 'react-i18next'
 import { AlertTriangle } from 'lucide-react'
-import { showSubmittedData } from '@/lib/show-submitted-data'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { useDeleteItem } from '../hooks/use-delete-item'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { ConfirmDialog } from '@/components/confirm-dialog'
@@ -24,11 +24,17 @@ export function ItemsDeleteDialog({
   const { t } = useTranslation('items')
   const [value, setValue] = useState('')
 
+  const { mutate: deleteItem, isPending } = useDeleteItem()
+
   const handleDelete = () => {
     if (value.trim() !== currentRow.name) return
 
-    onOpenChange(false)
-    showSubmittedData(currentRow, 'The following item has been deleted:')
+    deleteItem(currentRow.id, {
+      onSuccess: () => {
+        onOpenChange(false)
+        setValue('')
+      },
+    })
   }
 
   return (
@@ -36,7 +42,7 @@ export function ItemsDeleteDialog({
       open={open}
       onOpenChange={onOpenChange}
       handleConfirm={handleDelete}
-      disabled={value.trim() !== currentRow.name}
+      disabled={value.trim() !== currentRow.name || isPending}
       title={
         <span className='text-destructive'>
           <AlertTriangle

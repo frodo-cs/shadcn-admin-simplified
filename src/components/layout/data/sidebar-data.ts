@@ -26,18 +26,14 @@ export const sidebarData: SidebarData = {
         {
           title: 'settings:title',
           icon: Settings,
-          items: [
-            {
-              title: 'settings:profile.title',
-              url: ROUTES.SETTINGS,
-              icon: UserCog,
-            },
-            {
-              title: 'settings:appearance.title',
-              url: ROUTES.APPEARANCE,
-              icon: UserCog,
-            },
-          ],
+          url: ROUTES.SETTINGS,
+          // items: [
+          //   {
+          //     title: 'settings:profile.title',
+          //     url: ROUTES.SETTINGS,
+          //     icon: UserCog,
+          //   },
+          // ],
         },
       ],
     },

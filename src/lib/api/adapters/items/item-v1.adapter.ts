@@ -38,6 +38,30 @@ export class ItemAdapterV1 implements IItemAdapter {
     const response = await apiClient.get(
       `${this.baseUrl}/${ENDPOINTS.ITEMS.GET}`
     )
-    return response.data.map(this.transform)
+    return response.data.map((item: ItemResponseMockDTO) =>
+      this.transform(item)
+    )
+  }
+
+  async create(
+    item: Omit<Item, 'id' | 'createdAt' | 'updatedAt'>
+  ): Promise<Item> {
+    const response = await apiClient.post(
+      `${this.baseUrl}/${ENDPOINTS.ITEMS.GET}`,
+      item
+    )
+    return this.transform(response.data)
+  }
+
+  async update(id: string, item: Partial<Item>): Promise<Item> {
+    const response = await apiClient.put(
+      `${this.baseUrl}/${ENDPOINTS.ITEMS.GET}/${id}`,
+      item
+    )
+    return this.transform(response.data)
+  }
+
+  async delete(id: string): Promise<void> {
+    await apiClient.delete(`${this.baseUrl}/${ENDPOINTS.ITEMS.GET}/${id}`)
   }
 }

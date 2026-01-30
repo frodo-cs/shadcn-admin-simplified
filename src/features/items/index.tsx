@@ -7,6 +7,7 @@ import { ItemsProvider } from './components/items-provider'
 import { ItemsTable } from './components/items-table'
 import { MainContent } from '@/components/layout/main-content'
 import { useItems } from './hooks/use-items'
+import { CustomSpinner } from '@/components/custom-spinner'
 
 const route = getRouteApi('/_authenticated/items/')
 
@@ -17,7 +18,7 @@ export function Items() {
 
   const { data: items, isLoading } = useItems()
 
-  if (isLoading) return <div>{t('general:loading')}</div>
+  if (isLoading) return <CustomSpinner />
 
   return (
     <ItemsProvider>
